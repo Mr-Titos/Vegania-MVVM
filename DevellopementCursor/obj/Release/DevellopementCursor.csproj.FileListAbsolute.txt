@@ -1,0 +1,5 @@
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Release\DevellopementCursor.Connexion.resources
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Release\DevellopementCursor.Maquette.resources
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Release\DevellopementCursor.Properties.Resources.resources
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Release\DevellopementCursor.csproj.GenerateResource.cache
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Release\DevellopementCursor.csproj.CoreCompileInputs.cache
