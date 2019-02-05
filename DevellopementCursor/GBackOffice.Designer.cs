@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maquette));
             this.Gprod = new System.Windows.Forms.TabPage();
             this.panelCat = new System.Windows.Forms.Panel();
             this.ajcat = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             this.NumCatBox = new System.Windows.Forms.TextBox();
             this.NumCatLab = new System.Windows.Forms.Label();
             this.panelProd = new System.Windows.Forms.Panel();
+            this.labprixprod = new System.Windows.Forms.Label();
+            this.prixprod = new System.Windows.Forms.TextBox();
             this.ajprod = new System.Windows.Forms.Button();
             this.supprod = new System.Windows.Forms.Button();
             this.useless2 = new System.Windows.Forms.Label();
@@ -56,16 +59,49 @@
             this.listcat = new System.Windows.Forms.ListBox();
             this.Gpart = new System.Windows.Forms.TabPage();
             this.Gclient = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pancli = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.prencli = new System.Windows.Forms.Label();
+            this.preclibox = new System.Windows.Forms.TextBox();
+            this.cmdpclibox = new System.Windows.Forms.TextBox();
+            this.cmdpcli = new System.Windows.Forms.Label();
+            this.mdpclibox = new System.Windows.Forms.TextBox();
+            this.mdpcli = new System.Windows.Forms.Label();
+            this.loginclibox = new System.Windows.Forms.TextBox();
+            this.logincli = new System.Windows.Forms.Label();
+            this.partclibox = new System.Windows.Forms.TextBox();
+            this.partcli = new System.Windows.Forms.Label();
+            this.emailclibox = new System.Windows.Forms.TextBox();
+            this.emailcli = new System.Windows.Forms.Label();
+            this.telcli = new System.Windows.Forms.Label();
+            this.telclibox = new System.Windows.Forms.TextBox();
+            this.Cpcli = new System.Windows.Forms.Label();
+            this.cpboxcli = new System.Windows.Forms.TextBox();
+            this.addcli = new System.Windows.Forms.Button();
+            this.supcli = new System.Windows.Forms.Button();
+            this.modcli = new System.Windows.Forms.Button();
+            this.villeclibox = new System.Windows.Forms.TextBox();
+            this.vilcli = new System.Windows.Forms.Label();
+            this.adrclibox = new System.Windows.Forms.TextBox();
+            this.idclibox = new System.Windows.Forms.TextBox();
+            this.Nomcli = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nomclibox = new System.Windows.Forms.TextBox();
+            this.adrcli = new System.Windows.Forms.Label();
+            this.listcli = new System.Windows.Forms.ListBox();
+            this.actucli = new System.Windows.Forms.Button();
             this.tabindex = new System.Windows.Forms.TabControl();
-            this.labprixprod = new System.Windows.Forms.Label();
-            this.prixprod = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.naicli = new System.Windows.Forms.Label();
+            this.naiclibox = new System.Windows.Forms.TextBox();
+            this.laberrorcli = new System.Windows.Forms.Label();
             this.Gprod.SuspendLayout();
             this.panelCat.SuspendLayout();
             this.panelProd.SuspendLayout();
             this.Gclient.SuspendLayout();
+            this.pancli.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabindex.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,6 +229,22 @@
             this.panelProd.Size = new System.Drawing.Size(735, 169);
             this.panelProd.TabIndex = 17;
             this.panelProd.Visible = false;
+            // 
+            // labprixprod
+            // 
+            this.labprixprod.AutoSize = true;
+            this.labprixprod.Location = new System.Drawing.Point(333, 34);
+            this.labprixprod.Name = "labprixprod";
+            this.labprixprod.Size = new System.Drawing.Size(31, 17);
+            this.labprixprod.TabIndex = 18;
+            this.labprixprod.Text = "Prix";
+            // 
+            // prixprod
+            // 
+            this.prixprod.Location = new System.Drawing.Point(336, 65);
+            this.prixprod.Name = "prixprod";
+            this.prixprod.Size = new System.Drawing.Size(55, 22);
+            this.prixprod.TabIndex = 17;
             // 
             // ajprod
             // 
@@ -346,9 +398,10 @@
             // Gclient
             // 
             this.Gclient.BackColor = System.Drawing.SystemColors.Window;
-            this.Gclient.Controls.Add(this.listBox1);
-            this.Gclient.Controls.Add(this.textBox1);
-            this.Gclient.Controls.Add(this.button1);
+            this.Gclient.Controls.Add(this.laberrorcli);
+            this.Gclient.Controls.Add(this.pancli);
+            this.Gclient.Controls.Add(this.listcli);
+            this.Gclient.Controls.Add(this.actucli);
             this.Gclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gclient.Location = new System.Drawing.Point(4, 25);
             this.Gclient.Name = "Gclient";
@@ -357,23 +410,318 @@
             this.Gclient.TabIndex = 0;
             this.Gclient.Text = "Gerer Client";
             // 
-            // textBox1
+            // pancli
             // 
-            this.textBox1.Location = new System.Drawing.Point(274, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(410, 24);
-            this.textBox1.TabIndex = 2;
+            this.pancli.Controls.Add(this.naicli);
+            this.pancli.Controls.Add(this.naiclibox);
+            this.pancli.Controls.Add(this.pictureBox2);
+            this.pancli.Controls.Add(this.pictureBox1);
+            this.pancli.Controls.Add(this.prencli);
+            this.pancli.Controls.Add(this.preclibox);
+            this.pancli.Controls.Add(this.cmdpclibox);
+            this.pancli.Controls.Add(this.cmdpcli);
+            this.pancli.Controls.Add(this.mdpclibox);
+            this.pancli.Controls.Add(this.mdpcli);
+            this.pancli.Controls.Add(this.loginclibox);
+            this.pancli.Controls.Add(this.logincli);
+            this.pancli.Controls.Add(this.partclibox);
+            this.pancli.Controls.Add(this.partcli);
+            this.pancli.Controls.Add(this.emailclibox);
+            this.pancli.Controls.Add(this.emailcli);
+            this.pancli.Controls.Add(this.telcli);
+            this.pancli.Controls.Add(this.telclibox);
+            this.pancli.Controls.Add(this.Cpcli);
+            this.pancli.Controls.Add(this.cpboxcli);
+            this.pancli.Controls.Add(this.addcli);
+            this.pancli.Controls.Add(this.supcli);
+            this.pancli.Controls.Add(this.modcli);
+            this.pancli.Controls.Add(this.villeclibox);
+            this.pancli.Controls.Add(this.vilcli);
+            this.pancli.Controls.Add(this.adrclibox);
+            this.pancli.Controls.Add(this.idclibox);
+            this.pancli.Controls.Add(this.Nomcli);
+            this.pancli.Controls.Add(this.label7);
+            this.pancli.Controls.Add(this.nomclibox);
+            this.pancli.Controls.Add(this.adrcli);
+            this.pancli.Location = new System.Drawing.Point(227, 42);
+            this.pancli.Name = "pancli";
+            this.pancli.Size = new System.Drawing.Size(735, 384);
+            this.pancli.TabIndex = 18;
+            this.pancli.Visible = false;
             // 
-            // button1
+            // pictureBox2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(36, 455);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Actualiser";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(575, 231);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(373, 231);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // prencli
+            // 
+            this.prencli.AutoSize = true;
+            this.prencli.Location = new System.Drawing.Point(197, 34);
+            this.prencli.Name = "prencli";
+            this.prencli.Size = new System.Drawing.Size(61, 18);
+            this.prencli.TabIndex = 32;
+            this.prencli.Text = "Prenom";
+            // 
+            // preclibox
+            // 
+            this.preclibox.Location = new System.Drawing.Point(197, 65);
+            this.preclibox.Name = "preclibox";
+            this.preclibox.Size = new System.Drawing.Size(75, 24);
+            this.preclibox.TabIndex = 31;
+            // 
+            // cmdpclibox
+            // 
+            this.cmdpclibox.Location = new System.Drawing.Point(418, 262);
+            this.cmdpclibox.Name = "cmdpclibox";
+            this.cmdpclibox.Size = new System.Drawing.Size(182, 24);
+            this.cmdpclibox.TabIndex = 29;
+            this.cmdpclibox.UseSystemPasswordChar = true;
+            // 
+            // cmdpcli
+            // 
+            this.cmdpcli.AutoSize = true;
+            this.cmdpcli.Location = new System.Drawing.Point(418, 231);
+            this.cmdpcli.Name = "cmdpcli";
+            this.cmdpcli.Size = new System.Drawing.Size(107, 18);
+            this.cmdpcli.TabIndex = 30;
+            this.cmdpcli.Text = "Confirmer Mdp";
+            // 
+            // mdpclibox
+            // 
+            this.mdpclibox.Location = new System.Drawing.Point(216, 262);
+            this.mdpclibox.Name = "mdpclibox";
+            this.mdpclibox.Size = new System.Drawing.Size(182, 24);
+            this.mdpclibox.TabIndex = 27;
+            this.mdpclibox.UseSystemPasswordChar = true;
+            // 
+            // mdpcli
+            // 
+            this.mdpcli.AutoSize = true;
+            this.mdpcli.Location = new System.Drawing.Point(216, 231);
+            this.mdpcli.Name = "mdpcli";
+            this.mdpcli.Size = new System.Drawing.Size(98, 18);
+            this.mdpcli.TabIndex = 28;
+            this.mdpcli.Text = "Mot de passe";
+            // 
+            // loginclibox
+            // 
+            this.loginclibox.Location = new System.Drawing.Point(12, 262);
+            this.loginclibox.Name = "loginclibox";
+            this.loginclibox.Size = new System.Drawing.Size(182, 24);
+            this.loginclibox.TabIndex = 25;
+            // 
+            // logincli
+            // 
+            this.logincli.AutoSize = true;
+            this.logincli.Location = new System.Drawing.Point(12, 231);
+            this.logincli.Name = "logincli";
+            this.logincli.Size = new System.Drawing.Size(44, 18);
+            this.logincli.TabIndex = 26;
+            this.logincli.Text = "Login";
+            // 
+            // partclibox
+            // 
+            this.partclibox.Location = new System.Drawing.Point(609, 163);
+            this.partclibox.Name = "partclibox";
+            this.partclibox.ReadOnly = true;
+            this.partclibox.Size = new System.Drawing.Size(76, 24);
+            this.partclibox.TabIndex = 23;
+            // 
+            // partcli
+            // 
+            this.partcli.AutoSize = true;
+            this.partcli.Location = new System.Drawing.Point(610, 132);
+            this.partcli.Name = "partcli";
+            this.partcli.Size = new System.Drawing.Size(75, 18);
+            this.partcli.TabIndex = 24;
+            this.partcli.Text = "Partenaire";
+            // 
+            // emailclibox
+            // 
+            this.emailclibox.Location = new System.Drawing.Point(169, 163);
+            this.emailclibox.Name = "emailclibox";
+            this.emailclibox.Size = new System.Drawing.Size(225, 24);
+            this.emailclibox.TabIndex = 21;
+            // 
+            // emailcli
+            // 
+            this.emailcli.AutoSize = true;
+            this.emailcli.Location = new System.Drawing.Point(169, 132);
+            this.emailcli.Name = "emailcli";
+            this.emailcli.Size = new System.Drawing.Size(201, 18);
+            this.emailcli.TabIndex = 22;
+            this.emailcli.Text = "Adresse mail (YYYY-MM-DD)";
+            // 
+            // telcli
+            // 
+            this.telcli.AutoSize = true;
+            this.telcli.Location = new System.Drawing.Point(12, 132);
+            this.telcli.Name = "telcli";
+            this.telcli.Size = new System.Drawing.Size(77, 18);
+            this.telcli.TabIndex = 20;
+            this.telcli.Text = "Telephone";
+            // 
+            // telclibox
+            // 
+            this.telclibox.Location = new System.Drawing.Point(12, 163);
+            this.telclibox.Name = "telclibox";
+            this.telclibox.Size = new System.Drawing.Size(126, 24);
+            this.telclibox.TabIndex = 19;
+            // 
+            // Cpcli
+            // 
+            this.Cpcli.AutoSize = true;
+            this.Cpcli.Location = new System.Drawing.Point(505, 34);
+            this.Cpcli.Name = "Cpcli";
+            this.Cpcli.Size = new System.Drawing.Size(29, 18);
+            this.Cpcli.TabIndex = 18;
+            this.Cpcli.Text = "CP";
+            // 
+            // cpboxcli
+            // 
+            this.cpboxcli.Location = new System.Drawing.Point(505, 65);
+            this.cpboxcli.Name = "cpboxcli";
+            this.cpboxcli.Size = new System.Drawing.Size(57, 24);
+            this.cpboxcli.TabIndex = 17;
+            // 
+            // addcli
+            // 
+            this.addcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.addcli.Location = new System.Drawing.Point(200, 340);
+            this.addcli.Name = "addcli";
+            this.addcli.Size = new System.Drawing.Size(87, 33);
+            this.addcli.TabIndex = 12;
+            this.addcli.Text = "Ajouter";
+            this.addcli.UseVisualStyleBackColor = true;
+            this.addcli.Click += new System.EventHandler(this.addcli_Click);
+            // 
+            // supcli
+            // 
+            this.supcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.supcli.Location = new System.Drawing.Point(107, 340);
+            this.supcli.Name = "supcli";
+            this.supcli.Size = new System.Drawing.Size(87, 33);
+            this.supcli.TabIndex = 12;
+            this.supcli.Text = "Supprimer";
+            this.supcli.UseVisualStyleBackColor = true;
+            // 
+            // modcli
+            // 
+            this.modcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.modcli.Location = new System.Drawing.Point(11, 340);
+            this.modcli.Name = "modcli";
+            this.modcli.Size = new System.Drawing.Size(90, 33);
+            this.modcli.TabIndex = 11;
+            this.modcli.Text = "Modifier";
+            this.modcli.UseVisualStyleBackColor = true;
+            this.modcli.Click += new System.EventHandler(this.modcli_Click);
+            // 
+            // villeclibox
+            // 
+            this.villeclibox.Location = new System.Drawing.Point(586, 65);
+            this.villeclibox.Name = "villeclibox";
+            this.villeclibox.Size = new System.Drawing.Size(112, 24);
+            this.villeclibox.TabIndex = 15;
+            // 
+            // vilcli
+            // 
+            this.vilcli.AutoSize = true;
+            this.vilcli.Location = new System.Drawing.Point(586, 34);
+            this.vilcli.Name = "vilcli";
+            this.vilcli.Size = new System.Drawing.Size(34, 18);
+            this.vilcli.TabIndex = 16;
+            this.vilcli.Text = "Ville";
+            // 
+            // adrclibox
+            // 
+            this.adrclibox.Location = new System.Drawing.Point(296, 65);
+            this.adrclibox.Name = "adrclibox";
+            this.adrclibox.Size = new System.Drawing.Size(184, 24);
+            this.adrclibox.TabIndex = 9;
+            // 
+            // idclibox
+            // 
+            this.idclibox.Location = new System.Drawing.Point(12, 65);
+            this.idclibox.Name = "idclibox";
+            this.idclibox.ReadOnly = true;
+            this.idclibox.Size = new System.Drawing.Size(55, 24);
+            this.idclibox.TabIndex = 10;
+            // 
+            // Nomcli
+            // 
+            this.Nomcli.AutoSize = true;
+            this.Nomcli.Location = new System.Drawing.Point(97, 34);
+            this.Nomcli.Name = "Nomcli";
+            this.Nomcli.Size = new System.Drawing.Size(41, 18);
+            this.Nomcli.TabIndex = 14;
+            this.Nomcli.Text = "Nom";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(22, 18);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "ID";
+            // 
+            // nomclibox
+            // 
+            this.nomclibox.Location = new System.Drawing.Point(97, 65);
+            this.nomclibox.Name = "nomclibox";
+            this.nomclibox.Size = new System.Drawing.Size(75, 24);
+            this.nomclibox.TabIndex = 13;
+            // 
+            // adrcli
+            // 
+            this.adrcli.AutoSize = true;
+            this.adrcli.Location = new System.Drawing.Point(296, 34);
+            this.adrcli.Name = "adrcli";
+            this.adrcli.Size = new System.Drawing.Size(62, 18);
+            this.adrcli.TabIndex = 12;
+            this.adrcli.Text = "Adresse";
+            // 
+            // listcli
+            // 
+            this.listcli.BackColor = System.Drawing.Color.LightGray;
+            this.listcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listcli.FormattingEnabled = true;
+            this.listcli.HorizontalScrollbar = true;
+            this.listcli.ItemHeight = 20;
+            this.listcli.Location = new System.Drawing.Point(36, 42);
+            this.listcli.Name = "listcli";
+            this.listcli.Size = new System.Drawing.Size(184, 384);
+            this.listcli.TabIndex = 3;
+            this.listcli.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // actucli
+            // 
+            this.actucli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.actucli.Location = new System.Drawing.Point(36, 455);
+            this.actucli.Name = "actucli";
+            this.actucli.Size = new System.Drawing.Size(184, 28);
+            this.actucli.TabIndex = 1;
+            this.actucli.Text = "ACTUALISER";
+            this.actucli.UseVisualStyleBackColor = true;
+            this.actucli.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabindex
             // 
@@ -385,34 +733,35 @@
             this.tabindex.SelectedIndex = 0;
             this.tabindex.Size = new System.Drawing.Size(987, 558);
             this.tabindex.TabIndex = 0;
+            this.tabindex.SelectedIndexChanged += new System.EventHandler(this.tabindex_SelectedIndexChanged);
             // 
-            // labprixprod
+            // naicli
             // 
-            this.labprixprod.AutoSize = true;
-            this.labprixprod.Location = new System.Drawing.Point(333, 34);
-            this.labprixprod.Name = "labprixprod";
-            this.labprixprod.Size = new System.Drawing.Size(31, 17);
-            this.labprixprod.TabIndex = 18;
-            this.labprixprod.Text = "Prix";
+            this.naicli.AutoSize = true;
+            this.naicli.Location = new System.Drawing.Point(441, 132);
+            this.naicli.Name = "naicli";
+            this.naicli.Size = new System.Drawing.Size(78, 18);
+            this.naicli.TabIndex = 35;
+            this.naicli.Text = "Date naiss";
             // 
-            // prixprod
+            // naiclibox
             // 
-            this.prixprod.Location = new System.Drawing.Point(336, 65);
-            this.prixprod.Name = "prixprod";
-            this.prixprod.Size = new System.Drawing.Size(55, 22);
-            this.prixprod.TabIndex = 17;
+            this.naiclibox.Location = new System.Drawing.Point(441, 163);
+            this.naiclibox.Name = "naiclibox";
+            this.naiclibox.Size = new System.Drawing.Size(93, 24);
+            this.naiclibox.TabIndex = 34;
             // 
-            // listBox1
+            // laberrorcli
             // 
-            this.listBox1.BackColor = System.Drawing.Color.LightGray;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(36, 42);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(184, 384);
-            this.listBox1.TabIndex = 3;
+            this.laberrorcli.AutoSize = true;
+            this.laberrorcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laberrorcli.ForeColor = System.Drawing.Color.Red;
+            this.laberrorcli.Location = new System.Drawing.Point(396, 465);
+            this.laberrorcli.Name = "laberrorcli";
+            this.laberrorcli.Size = new System.Drawing.Size(285, 18);
+            this.laberrorcli.TabIndex = 19;
+            this.laberrorcli.Text = "Certains champs ne sont pas valide !";
+            this.laberrorcli.Visible = false;
             // 
             // Maquette
             // 
@@ -433,6 +782,10 @@
             this.panelProd.PerformLayout();
             this.Gclient.ResumeLayout(false);
             this.Gclient.PerformLayout();
+            this.pancli.ResumeLayout(false);
+            this.pancli.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabindex.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -444,8 +797,7 @@
         private System.Windows.Forms.TabPage Gpart;
         private System.Windows.Forms.TabPage Gclient;
         private System.Windows.Forms.TabControl tabindex;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button actucli;
         private System.Windows.Forms.Button actucat;
         private System.Windows.Forms.ListBox listcat;
         private System.Windows.Forms.Label LibCatLab;
@@ -473,7 +825,40 @@
         private System.Windows.Forms.Button ajprod;
         private System.Windows.Forms.Label labprixprod;
         private System.Windows.Forms.TextBox prixprod;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listcli;
+        private System.Windows.Forms.Panel pancli;
+        private System.Windows.Forms.Label Cpcli;
+        private System.Windows.Forms.TextBox cpboxcli;
+        private System.Windows.Forms.Button addcli;
+        private System.Windows.Forms.Button supcli;
+        private System.Windows.Forms.Button modcli;
+        private System.Windows.Forms.TextBox villeclibox;
+        private System.Windows.Forms.Label vilcli;
+        private System.Windows.Forms.TextBox adrclibox;
+        private System.Windows.Forms.TextBox idclibox;
+        private System.Windows.Forms.Label Nomcli;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox nomclibox;
+        private System.Windows.Forms.Label adrcli;
+        private System.Windows.Forms.TextBox partclibox;
+        private System.Windows.Forms.Label partcli;
+        private System.Windows.Forms.TextBox emailclibox;
+        private System.Windows.Forms.Label emailcli;
+        private System.Windows.Forms.Label telcli;
+        private System.Windows.Forms.TextBox telclibox;
+        private System.Windows.Forms.TextBox cmdpclibox;
+        private System.Windows.Forms.Label cmdpcli;
+        private System.Windows.Forms.TextBox mdpclibox;
+        private System.Windows.Forms.Label mdpcli;
+        private System.Windows.Forms.TextBox loginclibox;
+        private System.Windows.Forms.Label logincli;
+        private System.Windows.Forms.Label prencli;
+        private System.Windows.Forms.TextBox preclibox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label naicli;
+        private System.Windows.Forms.TextBox naiclibox;
+        private System.Windows.Forms.Label laberrorcli;
     }
 }
 

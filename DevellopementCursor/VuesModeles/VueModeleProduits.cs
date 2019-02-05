@@ -13,9 +13,12 @@ namespace DevellopementCursor
 
         public void Add_Prod(int nc, String lib, double pr, String Desc)
         {
-            db.produits.Add(new Modele.produits() { NumCat = nc, LibProd = lib, PrixProd = Convert.ToSingle(pr), DescProd = Desc });
-            db.SaveChanges();
-            var l = db.produits.ToList(); // le type var permet n'importe quel type primitif
+            if (Desc.Length < 100 && lib.Length < 25)
+            {
+                db.produits.Add(new Modele.produits() { NumCat = nc, LibProd = lib, PrixProd = Convert.ToSingle(pr), DescProd = Desc });
+                db.SaveChanges();
+                var l = db.produits.ToList();  // le type var permet n'importe quel type primitif 
+            }
         }
 
         public String Get_AllLibProd()
@@ -58,7 +61,7 @@ namespace DevellopementCursor
             var produit = from cat in db.produits
                           where cat.IdProd == n
                           select cat;
-            return r = produit.ToList()[0].LibProd + "," + produit.ToList()[0].NumCat + ","+ produit.ToList()[0].PrixProd +","+ produit.ToList()[0].DescProd;
+            return r = produit.ToList()[0].LibProd + "," + produit.ToList()[0].NumCat + "," + produit.ToList()[0].PrixProd + "," + produit.ToList()[0].DescProd;
         }
         public String Get_AllCategorie()
         {

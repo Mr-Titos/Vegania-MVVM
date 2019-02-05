@@ -14,9 +14,12 @@ namespace DevellopementCursor
 
         public void Add_Categorie( String lib)
         {
-            db.categories.Add(new Modele.categories() { LIB_CATEGORIE = lib } );
-            db.SaveChanges();
-            var l = db.categories.ToList(); // le type var permet n'importe quel type primitif
+            if (lib.Length < 100)
+            {
+                db.categories.Add(new Modele.categories() { LIB_CATEGORIE = lib });
+                db.SaveChanges();
+                var l = db.categories.ToList(); // le type var permet n'importe quel type primitif
+            }
         }
 
         public int Get_IdCategorie(String n)

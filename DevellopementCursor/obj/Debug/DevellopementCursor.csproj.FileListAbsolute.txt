@@ -7,7 +7,6 @@ C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\bin\Debug\My
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\bin\Debug\EntityFramework.xml
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.csprojAssemblyReference.cache
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.Properties.Resources.resources
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.csproj.GenerateResource.cache
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\De
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.Connexion.resources
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.AjoutCat.resources
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.AjoutProd.resources
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.csprojAssemblyReference.cache

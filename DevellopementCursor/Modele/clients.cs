@@ -23,6 +23,10 @@ namespace DevellopementCursor.Modele
         public string NOM_CLIENT { get; set; }
 
         [Required]
+        [StringLength(30)]
+        public string PRE_CLIENT { get; set; }
+
+        [Required]
         [StringLength(255)]
         public string ADR_CLIENT { get; set; }
 

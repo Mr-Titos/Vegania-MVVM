@@ -12,13 +12,15 @@ namespace DevellopementCursor
         Modele.Donnees db = new Modele.Donnees();
 
 
-        public void Newclient(int id)
+        public void Add_Client(String nom, String adr, String cp, String v, String nai, String tel, String email, bool pa, String log, String mdp)
         {
-            db.clients.Add(new Modele.clients() { NUM_CLIENT = id });
-            db.SaveChanges();
-            var l = db.categories.ToList(); // le type var permet n'importe quel type primitif
-
-            MessageBox.Show(l.LastOrDefault<Modele.categories>().LIB_CATEGORIE);
+            // nai doit etre sous le format YYYY-MM-JJ
+            if (nom.Length < 100 && cp.Length == 6 && tel.Length == 10 && log.Length < 100 && mdp.Length < 100)
+            {
+                db.clients.Add(new Modele.clients() { NOM_CLIENT = nom, ADR_CLIENT = adr, CP_CLIENT = cp, VIL_CLIENT = v, TEL_CLIENT = tel, EMAIL_CLIENT = email, Partenaire = pa, LOG_CLIENT = log, MDP_CLIENT = mdp });
+                db.SaveChanges();
+                var l = db.clients.ToList();  // le type var permet n'importe quel type primitif 
+            }
         }
         // DEBUT GET
         public String Get_IdAllClient()
@@ -48,6 +50,14 @@ namespace DevellopementCursor
                           where cat.NUM_CLIENT == n
                           select cat;
             return cli.ToList()[0].NOM_CLIENT;
+        }
+
+        public string Get_PrenomClient(int n)
+        {
+            var cli = from cat in db.clients
+                      where cat.NUM_CLIENT == n
+                      select cat;
+            return cli.ToList()[0].PRE_CLIENT;
         }
         public string Get_AdrClient(int n)
         {
@@ -70,7 +80,7 @@ namespace DevellopementCursor
             var cli = from cat in db.clients
                           where cat.NUM_CLIENT == n
                           select cat;
-            return cli.ToList()[0].CP_CLIENT;
+            return cli.ToList()[0].VIL_CLIENT;
         }
 
         public string Get_NaiClient(int n)
@@ -78,7 +88,7 @@ namespace DevellopementCursor
             var cli = from cat in db.clients
                       where cat.NUM_CLIENT == n
                       select cat;
-            return Convert.ToString(cli.ToList()[0].NAI_CLIENT);
+            return Convert.ToString(cli.ToList()[0].NAI_CLIENT).Substring(0, 10);
         }
 
         public string Get_TelClient(int n)
@@ -237,14 +247,16 @@ namespace DevellopementCursor
             db.SaveChanges();
         }
 
-        public void Modify_Client(int n, String nom,String adr, String cp, String v, String nai, String tel, String email, bool pa, String log, String mdp)
+        public void Modify_Client(int n, String nom, String pnom, String adr, String cp, String v,String nai, String tel, String email, bool pa, String log, String mdp)
         {
             // nai doit etre sous format YYYY-MM-DD
             var modif_cli = from cat in db.clients
                             where cat.NUM_CLIENT == n
                             select cat;
             DateTime date = Convert.ToDateTime(nai);
+            //DateTime datenai = DateTime.Parse(naiclibox.Text);
             modif_cli.ToList().Last<Modele.clients>().NOM_CLIENT = nom;
+            modif_cli.ToList().Last<Modele.clients>().PRE_CLIENT = pnom;
             modif_cli.ToList().Last<Modele.clients>().ADR_CLIENT = adr;
             modif_cli.ToList().Last<Modele.clients>().CP_CLIENT = cp;
             modif_cli.ToList().Last<Modele.clients>().VIL_CLIENT = v;
