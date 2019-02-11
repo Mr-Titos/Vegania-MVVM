@@ -40,6 +40,7 @@
             this.NumCatBox = new System.Windows.Forms.TextBox();
             this.NumCatLab = new System.Windows.Forms.Label();
             this.panelProd = new System.Windows.Forms.Panel();
+            this.catprodbox = new System.Windows.Forms.ComboBox();
             this.labprixprod = new System.Windows.Forms.Label();
             this.prixprod = new System.Windows.Forms.TextBox();
             this.ajprod = new System.Windows.Forms.Button();
@@ -52,14 +53,18 @@
             this.idProdBox = new System.Windows.Forms.TextBox();
             this.NumCat = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numcatboxprod = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.actuprod = new System.Windows.Forms.Button();
             this.actucat = new System.Windows.Forms.Button();
             this.listcat = new System.Windows.Forms.ListBox();
             this.Gpart = new System.Windows.Forms.TabPage();
             this.Gclient = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.laberrorcli = new System.Windows.Forms.Label();
             this.pancli = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.naicli = new System.Windows.Forms.Label();
+            this.naiclibox = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.prencli = new System.Windows.Forms.Label();
@@ -70,8 +75,6 @@
             this.mdpcli = new System.Windows.Forms.Label();
             this.loginclibox = new System.Windows.Forms.TextBox();
             this.logincli = new System.Windows.Forms.Label();
-            this.partclibox = new System.Windows.Forms.TextBox();
-            this.partcli = new System.Windows.Forms.Label();
             this.emailclibox = new System.Windows.Forms.TextBox();
             this.emailcli = new System.Windows.Forms.Label();
             this.telcli = new System.Windows.Forms.Label();
@@ -92,9 +95,7 @@
             this.listcli = new System.Windows.Forms.ListBox();
             this.actucli = new System.Windows.Forms.Button();
             this.tabindex = new System.Windows.Forms.TabControl();
-            this.naicli = new System.Windows.Forms.Label();
-            this.naiclibox = new System.Windows.Forms.TextBox();
-            this.laberrorcli = new System.Windows.Forms.Label();
+            this.laberrorprod = new System.Windows.Forms.Label();
             this.Gprod.SuspendLayout();
             this.panelCat.SuspendLayout();
             this.panelProd.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             // Gprod
             // 
+            this.Gprod.Controls.Add(this.laberrorprod);
             this.Gprod.Controls.Add(this.panelCat);
             this.Gprod.Controls.Add(this.panelProd);
             this.Gprod.Controls.Add(this.actuprod);
@@ -168,7 +170,7 @@
             // useless
             // 
             this.useless.AutoSize = true;
-            this.useless.Location = new System.Drawing.Point(591, 22);
+            this.useless.Location = new System.Drawing.Point(651, 22);
             this.useless.Name = "useless";
             this.useless.Size = new System.Drawing.Size(69, 17);
             this.useless.TabIndex = 8;
@@ -210,6 +212,7 @@
             // 
             // panelProd
             // 
+            this.panelProd.Controls.Add(this.catprodbox);
             this.panelProd.Controls.Add(this.labprixprod);
             this.panelProd.Controls.Add(this.prixprod);
             this.panelProd.Controls.Add(this.ajprod);
@@ -222,7 +225,6 @@
             this.panelProd.Controls.Add(this.idProdBox);
             this.panelProd.Controls.Add(this.NumCat);
             this.panelProd.Controls.Add(this.label2);
-            this.panelProd.Controls.Add(this.numcatboxprod);
             this.panelProd.Controls.Add(this.label1);
             this.panelProd.Location = new System.Drawing.Point(227, 234);
             this.panelProd.Name = "panelProd";
@@ -230,18 +232,26 @@
             this.panelProd.TabIndex = 17;
             this.panelProd.Visible = false;
             // 
+            // catprodbox
+            // 
+            this.catprodbox.FormattingEnabled = true;
+            this.catprodbox.Location = new System.Drawing.Point(94, 65);
+            this.catprodbox.Name = "catprodbox";
+            this.catprodbox.Size = new System.Drawing.Size(101, 24);
+            this.catprodbox.TabIndex = 19;
+            // 
             // labprixprod
             // 
             this.labprixprod.AutoSize = true;
-            this.labprixprod.Location = new System.Drawing.Point(333, 34);
+            this.labprixprod.Location = new System.Drawing.Point(393, 34);
             this.labprixprod.Name = "labprixprod";
-            this.labprixprod.Size = new System.Drawing.Size(31, 17);
+            this.labprixprod.Size = new System.Drawing.Size(62, 17);
             this.labprixprod.TabIndex = 18;
-            this.labprixprod.Text = "Prix";
+            this.labprixprod.Text = "Prix €/kg";
             // 
             // prixprod
             // 
-            this.prixprod.Location = new System.Drawing.Point(336, 65);
+            this.prixprod.Location = new System.Drawing.Point(396, 65);
             this.prixprod.Name = "prixprod";
             this.prixprod.Size = new System.Drawing.Size(55, 22);
             this.prixprod.TabIndex = 17;
@@ -269,7 +279,7 @@
             // useless2
             // 
             this.useless2.AutoSize = true;
-            this.useless2.Location = new System.Drawing.Point(591, 34);
+            this.useless2.Location = new System.Drawing.Point(660, 17);
             this.useless2.Name = "useless2";
             this.useless2.Size = new System.Drawing.Size(60, 17);
             this.useless2.TabIndex = 9;
@@ -288,16 +298,16 @@
             // 
             // descprod
             // 
-            this.descprod.Location = new System.Drawing.Point(431, 65);
+            this.descprod.Location = new System.Drawing.Point(491, 65);
             this.descprod.Multiline = true;
             this.descprod.Name = "descprod";
-            this.descprod.Size = new System.Drawing.Size(145, 77);
+            this.descprod.Size = new System.Drawing.Size(229, 77);
             this.descprod.TabIndex = 15;
             // 
             // DescriptionProd
             // 
             this.DescriptionProd.AutoSize = true;
-            this.DescriptionProd.Location = new System.Drawing.Point(428, 34);
+            this.DescriptionProd.Location = new System.Drawing.Point(488, 34);
             this.DescriptionProd.Name = "DescriptionProd";
             this.DescriptionProd.Size = new System.Drawing.Size(79, 17);
             this.DescriptionProd.TabIndex = 16;
@@ -305,7 +315,7 @@
             // 
             // libprod
             // 
-            this.libprod.Location = new System.Drawing.Point(184, 65);
+            this.libprod.Location = new System.Drawing.Point(244, 65);
             this.libprod.Name = "libprod";
             this.libprod.Size = new System.Drawing.Size(124, 22);
             this.libprod.TabIndex = 9;
@@ -323,9 +333,9 @@
             this.NumCat.AutoSize = true;
             this.NumCat.Location = new System.Drawing.Point(94, 34);
             this.NumCat.Name = "NumCat";
-            this.NumCat.Size = new System.Drawing.Size(58, 17);
+            this.NumCat.Size = new System.Drawing.Size(69, 17);
             this.NumCat.TabIndex = 14;
-            this.NumCat.Text = "NumCat";
+            this.NumCat.Text = "Categorie";
             // 
             // label2
             // 
@@ -336,17 +346,10 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "ID";
             // 
-            // numcatboxprod
-            // 
-            this.numcatboxprod.Location = new System.Drawing.Point(97, 65);
-            this.numcatboxprod.Name = "numcatboxprod";
-            this.numcatboxprod.Size = new System.Drawing.Size(55, 22);
-            this.numcatboxprod.TabIndex = 13;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(181, 34);
+            this.label1.Location = new System.Drawing.Point(241, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 12;
@@ -398,6 +401,7 @@
             // Gclient
             // 
             this.Gclient.BackColor = System.Drawing.SystemColors.Window;
+            this.Gclient.Controls.Add(this.textBox1);
             this.Gclient.Controls.Add(this.laberrorcli);
             this.Gclient.Controls.Add(this.pancli);
             this.Gclient.Controls.Add(this.listcli);
@@ -410,8 +414,28 @@
             this.Gclient.TabIndex = 0;
             this.Gclient.Text = "Gerer Client";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(36, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 24);
+            this.textBox1.TabIndex = 20;
+            // 
+            // laberrorcli
+            // 
+            this.laberrorcli.AutoSize = true;
+            this.laberrorcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laberrorcli.ForeColor = System.Drawing.Color.Red;
+            this.laberrorcli.Location = new System.Drawing.Point(396, 465);
+            this.laberrorcli.Name = "laberrorcli";
+            this.laberrorcli.Size = new System.Drawing.Size(285, 18);
+            this.laberrorcli.TabIndex = 19;
+            this.laberrorcli.Text = "Certains champs ne sont pas valide !";
+            this.laberrorcli.Visible = false;
+            // 
             // pancli
             // 
+            this.pancli.Controls.Add(this.label3);
             this.pancli.Controls.Add(this.naicli);
             this.pancli.Controls.Add(this.naiclibox);
             this.pancli.Controls.Add(this.pictureBox2);
@@ -424,8 +448,6 @@
             this.pancli.Controls.Add(this.mdpcli);
             this.pancli.Controls.Add(this.loginclibox);
             this.pancli.Controls.Add(this.logincli);
-            this.pancli.Controls.Add(this.partclibox);
-            this.pancli.Controls.Add(this.partcli);
             this.pancli.Controls.Add(this.emailclibox);
             this.pancli.Controls.Add(this.emailcli);
             this.pancli.Controls.Add(this.telcli);
@@ -448,6 +470,31 @@
             this.pancli.Size = new System.Drawing.Size(735, 384);
             this.pancli.TabIndex = 18;
             this.pancli.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(546, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 18);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "DD/MM/YYYY";
+            // 
+            // naicli
+            // 
+            this.naicli.AutoSize = true;
+            this.naicli.Location = new System.Drawing.Point(441, 132);
+            this.naicli.Name = "naicli";
+            this.naicli.Size = new System.Drawing.Size(78, 18);
+            this.naicli.TabIndex = 35;
+            this.naicli.Text = "Date naiss";
+            // 
+            // naiclibox
+            // 
+            this.naiclibox.Location = new System.Drawing.Point(441, 163);
+            this.naiclibox.Name = "naiclibox";
+            this.naiclibox.Size = new System.Drawing.Size(99, 24);
+            this.naiclibox.TabIndex = 8;
             // 
             // pictureBox2
             // 
@@ -485,14 +532,14 @@
             this.preclibox.Location = new System.Drawing.Point(197, 65);
             this.preclibox.Name = "preclibox";
             this.preclibox.Size = new System.Drawing.Size(75, 24);
-            this.preclibox.TabIndex = 31;
+            this.preclibox.TabIndex = 2;
             // 
             // cmdpclibox
             // 
             this.cmdpclibox.Location = new System.Drawing.Point(418, 262);
             this.cmdpclibox.Name = "cmdpclibox";
             this.cmdpclibox.Size = new System.Drawing.Size(182, 24);
-            this.cmdpclibox.TabIndex = 29;
+            this.cmdpclibox.TabIndex = 11;
             this.cmdpclibox.UseSystemPasswordChar = true;
             // 
             // cmdpcli
@@ -509,7 +556,7 @@
             this.mdpclibox.Location = new System.Drawing.Point(216, 262);
             this.mdpclibox.Name = "mdpclibox";
             this.mdpclibox.Size = new System.Drawing.Size(182, 24);
-            this.mdpclibox.TabIndex = 27;
+            this.mdpclibox.TabIndex = 10;
             this.mdpclibox.UseSystemPasswordChar = true;
             // 
             // mdpcli
@@ -526,7 +573,7 @@
             this.loginclibox.Location = new System.Drawing.Point(12, 262);
             this.loginclibox.Name = "loginclibox";
             this.loginclibox.Size = new System.Drawing.Size(182, 24);
-            this.loginclibox.TabIndex = 25;
+            this.loginclibox.TabIndex = 9;
             // 
             // logincli
             // 
@@ -537,38 +584,21 @@
             this.logincli.TabIndex = 26;
             this.logincli.Text = "Login";
             // 
-            // partclibox
-            // 
-            this.partclibox.Location = new System.Drawing.Point(609, 163);
-            this.partclibox.Name = "partclibox";
-            this.partclibox.ReadOnly = true;
-            this.partclibox.Size = new System.Drawing.Size(76, 24);
-            this.partclibox.TabIndex = 23;
-            // 
-            // partcli
-            // 
-            this.partcli.AutoSize = true;
-            this.partcli.Location = new System.Drawing.Point(610, 132);
-            this.partcli.Name = "partcli";
-            this.partcli.Size = new System.Drawing.Size(75, 18);
-            this.partcli.TabIndex = 24;
-            this.partcli.Text = "Partenaire";
-            // 
             // emailclibox
             // 
             this.emailclibox.Location = new System.Drawing.Point(169, 163);
             this.emailclibox.Name = "emailclibox";
             this.emailclibox.Size = new System.Drawing.Size(225, 24);
-            this.emailclibox.TabIndex = 21;
+            this.emailclibox.TabIndex = 7;
             // 
             // emailcli
             // 
             this.emailcli.AutoSize = true;
             this.emailcli.Location = new System.Drawing.Point(169, 132);
             this.emailcli.Name = "emailcli";
-            this.emailcli.Size = new System.Drawing.Size(201, 18);
+            this.emailcli.Size = new System.Drawing.Size(93, 18);
             this.emailcli.TabIndex = 22;
-            this.emailcli.Text = "Adresse mail (YYYY-MM-DD)";
+            this.emailcli.Text = "Adresse mail";
             // 
             // telcli
             // 
@@ -584,7 +614,7 @@
             this.telclibox.Location = new System.Drawing.Point(12, 163);
             this.telclibox.Name = "telclibox";
             this.telclibox.Size = new System.Drawing.Size(126, 24);
-            this.telclibox.TabIndex = 19;
+            this.telclibox.TabIndex = 6;
             // 
             // Cpcli
             // 
@@ -600,7 +630,7 @@
             this.cpboxcli.Location = new System.Drawing.Point(505, 65);
             this.cpboxcli.Name = "cpboxcli";
             this.cpboxcli.Size = new System.Drawing.Size(57, 24);
-            this.cpboxcli.TabIndex = 17;
+            this.cpboxcli.TabIndex = 4;
             // 
             // addcli
             // 
@@ -608,7 +638,7 @@
             this.addcli.Location = new System.Drawing.Point(200, 340);
             this.addcli.Name = "addcli";
             this.addcli.Size = new System.Drawing.Size(87, 33);
-            this.addcli.TabIndex = 12;
+            this.addcli.TabIndex = 14;
             this.addcli.Text = "Ajouter";
             this.addcli.UseVisualStyleBackColor = true;
             this.addcli.Click += new System.EventHandler(this.addcli_Click);
@@ -619,9 +649,10 @@
             this.supcli.Location = new System.Drawing.Point(107, 340);
             this.supcli.Name = "supcli";
             this.supcli.Size = new System.Drawing.Size(87, 33);
-            this.supcli.TabIndex = 12;
+            this.supcli.TabIndex = 13;
             this.supcli.Text = "Supprimer";
             this.supcli.UseVisualStyleBackColor = true;
+            this.supcli.Click += new System.EventHandler(this.supcli_Click);
             // 
             // modcli
             // 
@@ -629,7 +660,7 @@
             this.modcli.Location = new System.Drawing.Point(11, 340);
             this.modcli.Name = "modcli";
             this.modcli.Size = new System.Drawing.Size(90, 33);
-            this.modcli.TabIndex = 11;
+            this.modcli.TabIndex = 12;
             this.modcli.Text = "Modifier";
             this.modcli.UseVisualStyleBackColor = true;
             this.modcli.Click += new System.EventHandler(this.modcli_Click);
@@ -639,7 +670,7 @@
             this.villeclibox.Location = new System.Drawing.Point(586, 65);
             this.villeclibox.Name = "villeclibox";
             this.villeclibox.Size = new System.Drawing.Size(112, 24);
-            this.villeclibox.TabIndex = 15;
+            this.villeclibox.TabIndex = 5;
             // 
             // vilcli
             // 
@@ -655,7 +686,7 @@
             this.adrclibox.Location = new System.Drawing.Point(296, 65);
             this.adrclibox.Name = "adrclibox";
             this.adrclibox.Size = new System.Drawing.Size(184, 24);
-            this.adrclibox.TabIndex = 9;
+            this.adrclibox.TabIndex = 3;
             // 
             // idclibox
             // 
@@ -664,6 +695,7 @@
             this.idclibox.ReadOnly = true;
             this.idclibox.Size = new System.Drawing.Size(55, 24);
             this.idclibox.TabIndex = 10;
+            this.idclibox.TabStop = false;
             // 
             // Nomcli
             // 
@@ -688,7 +720,7 @@
             this.nomclibox.Location = new System.Drawing.Point(97, 65);
             this.nomclibox.Name = "nomclibox";
             this.nomclibox.Size = new System.Drawing.Size(75, 24);
-            this.nomclibox.TabIndex = 13;
+            this.nomclibox.TabIndex = 1;
             // 
             // adrcli
             // 
@@ -706,7 +738,7 @@
             this.listcli.FormattingEnabled = true;
             this.listcli.HorizontalScrollbar = true;
             this.listcli.ItemHeight = 20;
-            this.listcli.Location = new System.Drawing.Point(36, 42);
+            this.listcli.Location = new System.Drawing.Point(36, 52);
             this.listcli.Name = "listcli";
             this.listcli.Size = new System.Drawing.Size(184, 384);
             this.listcli.TabIndex = 3;
@@ -715,10 +747,10 @@
             // actucli
             // 
             this.actucli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.actucli.Location = new System.Drawing.Point(36, 455);
+            this.actucli.Location = new System.Drawing.Point(36, 467);
             this.actucli.Name = "actucli";
             this.actucli.Size = new System.Drawing.Size(184, 28);
-            this.actucli.TabIndex = 1;
+            this.actucli.TabIndex = 15;
             this.actucli.Text = "ACTUALISER";
             this.actucli.UseVisualStyleBackColor = true;
             this.actucli.Click += new System.EventHandler(this.button1_Click);
@@ -735,33 +767,17 @@
             this.tabindex.TabIndex = 0;
             this.tabindex.SelectedIndexChanged += new System.EventHandler(this.tabindex_SelectedIndexChanged);
             // 
-            // naicli
+            // laberrorprod
             // 
-            this.naicli.AutoSize = true;
-            this.naicli.Location = new System.Drawing.Point(441, 132);
-            this.naicli.Name = "naicli";
-            this.naicli.Size = new System.Drawing.Size(78, 18);
-            this.naicli.TabIndex = 35;
-            this.naicli.Text = "Date naiss";
-            // 
-            // naiclibox
-            // 
-            this.naiclibox.Location = new System.Drawing.Point(441, 163);
-            this.naiclibox.Name = "naiclibox";
-            this.naiclibox.Size = new System.Drawing.Size(93, 24);
-            this.naiclibox.TabIndex = 34;
-            // 
-            // laberrorcli
-            // 
-            this.laberrorcli.AutoSize = true;
-            this.laberrorcli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laberrorcli.ForeColor = System.Drawing.Color.Red;
-            this.laberrorcli.Location = new System.Drawing.Point(396, 465);
-            this.laberrorcli.Name = "laberrorcli";
-            this.laberrorcli.Size = new System.Drawing.Size(285, 18);
-            this.laberrorcli.TabIndex = 19;
-            this.laberrorcli.Text = "Certains champs ne sont pas valide !";
-            this.laberrorcli.Visible = false;
+            this.laberrorprod.AutoSize = true;
+            this.laberrorprod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laberrorprod.ForeColor = System.Drawing.Color.Red;
+            this.laberrorprod.Location = new System.Drawing.Point(456, 459);
+            this.laberrorprod.Name = "laberrorprod";
+            this.laberrorprod.Size = new System.Drawing.Size(285, 18);
+            this.laberrorprod.TabIndex = 20;
+            this.laberrorprod.Text = "Certains champs ne sont pas valide !";
+            this.laberrorprod.Visible = false;
             // 
             // Maquette
             // 
@@ -776,6 +792,7 @@
             this.Text = "Maquette";
             this.Load += new System.EventHandler(this.Maquette_Load);
             this.Gprod.ResumeLayout(false);
+            this.Gprod.PerformLayout();
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
             this.panelProd.ResumeLayout(false);
@@ -807,7 +824,6 @@
         private System.Windows.Forms.Label DescriptionProd;
         private System.Windows.Forms.TextBox descprod;
         private System.Windows.Forms.Label NumCat;
-        private System.Windows.Forms.TextBox numcatboxprod;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox idProdBox;
@@ -840,8 +856,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox nomclibox;
         private System.Windows.Forms.Label adrcli;
-        private System.Windows.Forms.TextBox partclibox;
-        private System.Windows.Forms.Label partcli;
         private System.Windows.Forms.TextBox emailclibox;
         private System.Windows.Forms.Label emailcli;
         private System.Windows.Forms.Label telcli;
@@ -859,6 +873,10 @@
         private System.Windows.Forms.Label naicli;
         private System.Windows.Forms.TextBox naiclibox;
         private System.Windows.Forms.Label laberrorcli;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox catprodbox;
+        private System.Windows.Forms.Label laberrorprod;
     }
 }
 

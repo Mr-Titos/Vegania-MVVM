@@ -28,13 +28,24 @@ namespace DevellopementCursor
                           where cat.LIB_CATEGORIE == n
                           select cat;
             return produit.ToList()[0].NUM_CATEGORIE ;
-        }        public String Get_Categorie(int n)
+        }
+
+        public String Get_AllIdCategorie()
         {
-            String r = "";
+            var produits = from cat in db.categories
+                           select cat;
+            string result = "";
+            foreach (var p in produits.ToList())
+            {
+                result += p.NUM_CATEGORIE + ",";
+            }
+            return result;
+        }        public String Get_LibCategorie(int n)
+        {
             var produit = from cat in db.categories
                           where cat.NUM_CATEGORIE == n
                           select cat;
-            return r = produit.ToList()[0].LIB_CATEGORIE;
+            return produit.ToList()[0].LIB_CATEGORIE;
         }
         public String Get_AllCategorie()
         {

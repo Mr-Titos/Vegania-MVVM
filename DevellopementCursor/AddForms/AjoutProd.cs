@@ -12,16 +12,21 @@ namespace DevellopementCursor
 {
     public partial class AjoutProd : Form
     {
+        VueModeleCategorie vc = new VueModeleCategorie();
         VueModeleProduits vp = new VueModeleProduits();
+
         public AjoutProd()
         {
             InitializeComponent();
-            Modele.Donnees db = new Modele.Donnees();
-            var produits = from cat in db.categories
-                           select cat;
 
-            foreach (var p in produits.ToList())
-                comboBox1.Items.Add(p.NUM_CATEGORIE + " " + p.LIB_CATEGORIE);
+            String allid = vc.Get_AllIdCategorie();
+            String[] allidcat = allid.Split(',');
+
+            foreach (string a in allidcat)
+            {
+                if (a.Length != 0)
+                    comboBox1.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)));
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -33,12 +33,31 @@ namespace DevellopementCursor
             return result;
         }
 
+        public String Get_AllIdProd()
+        {
+            var produits = from cat in db.produits
+                           select cat;
+            string result = "";
+            foreach (var p in produits.ToList())
+                result += p.IdProd + ",";
+
+            return result;
+        }
+
         public float Get_PrixProd(int n)
         {
             var produit = from cat in db.produits
                           where cat.IdProd == n
                           select cat;
             return produit.ToList()[0].PrixProd;
+        }
+
+        public String Get_LibProd(int n)
+        {
+            var produit = from cat in db.produits
+                          where cat.IdProd == n
+                          select cat;
+            return produit.ToList()[0].LibProd;
         }
 
         public String Get_DescProd(int n)
@@ -49,12 +68,12 @@ namespace DevellopementCursor
             return produit.ToList()[0].DescProd;
         }
 
-        public int Get_NumCatProd(int n)
+        public String Get_NumCatProd(int n)
         {
             var produit = from cat in db.produits
                           where cat.IdProd == n
                           select cat;
-            return produit.ToList()[0].NumCat;
+            return  Convert.ToString(produit.ToList()[0].NumCat);
         }        public String Get_Prod(int n)
         {
             String r = "";
@@ -62,50 +81,16 @@ namespace DevellopementCursor
                           where cat.IdProd == n
                           select cat;
             return r = produit.ToList()[0].LibProd + "," + produit.ToList()[0].NumCat + "," + produit.ToList()[0].PrixProd + "," + produit.ToList()[0].DescProd;
-        }
-        public String Get_AllCategorie()
+        }        public void Modify_Prod(int n, int nuc, string lib, float p, string desc)
         {
-            var produits = from cat in db.categories
-                           select cat;
-            string result = "";
-            foreach (var p in produits.ToList())
-            {
-                result += p.LIB_CATEGORIE + ",";
-            }
-            return result;
-        }
-
-        public String Get_NextIdCat()
-        {
-            var produits = from cat in db.categories
-                           select cat;
-            int result = 0;
-            foreach (var p in produits.ToList())
-                result = Convert.ToInt32(p.NUM_CATEGORIE);
-            String temp = result.ToString();
-            result = 1 + Convert.ToInt32(temp);
-            return temp;
-        }
-
-        public int Get_NbCat()
-        {
-            var produits = from cat in db.categories
-                           select cat;
-            int result = 0;
-            foreach (var p in produits.ToList())
-            {
-                result += 1;
-            }
-            return result;
-        }
-
-        public void Modify_Categorie(int n, string m)
-        {
-            var modif_cat = from cat in db.categories
-                            where cat.NUM_CATEGORIE == n
+            var modif_cat = from cat in db.produits
+                            where cat.IdProd == n
                             select cat;
 
-            modif_cat.ToList().Last<Modele.categories>().LIB_CATEGORIE = m;
+            modif_cat.ToList().Last<Modele.produits>().NumCat = nuc;
+            modif_cat.ToList().Last<Modele.produits>().LibProd = lib;
+            modif_cat.ToList().Last<Modele.produits>().PrixProd = p;
+            modif_cat.ToList().Last<Modele.produits>().DescProd = desc;
             db.SaveChanges();
         }
 

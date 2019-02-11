@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,18 +12,35 @@ namespace DevellopementCursor
     {
         Modele.Donnees db = new Modele.Donnees();
 
+        private String test = "";
 
-        public void Add_Client(String nom, String adr, String cp, String v, String nai, String tel, String email, bool pa, String log, String mdp)
+        public void Add_Client(String pre, String nom, String adr, String cp, String v, String nai, String tel, String email, bool pa, String log, String mdp)
         {
-            // nai doit etre sous le format YYYY-MM-JJ
-            if (nom.Length < 100 && cp.Length == 6 && tel.Length == 10 && log.Length < 100 && mdp.Length < 100)
+            // nai doit etre sous le format DD/MM/YYYY
+            nai = nai.Substring(6) + "-" + nai.Substring(3, 2) + "-" + nai.Substring(0, 2);
+
+            DateTime dnai = Convert.ToDateTime(nai);
+            db.clients.Add(new Modele.clients() { PRE_CLIENT = pre, NOM_CLIENT = nom, ADR_CLIENT = adr, CP_CLIENT = cp, VIL_CLIENT = v, NAI_CLIENT = dnai, TEL_CLIENT = tel, EMAIL_CLIENT = email, Partenaire = pa, LOG_CLIENT = log, MDP_CLIENT = mdp });
+            try { db.SaveChanges(); }
+
+            catch ( DbEntityValidationException ex)
             {
-                db.clients.Add(new Modele.clients() { NOM_CLIENT = nom, ADR_CLIENT = adr, CP_CLIENT = cp, VIL_CLIENT = v, TEL_CLIENT = tel, EMAIL_CLIENT = email, Partenaire = pa, LOG_CLIENT = log, MDP_CLIENT = mdp });
-                db.SaveChanges();
-                var l = db.clients.ToList();  // le type var permet n'importe quel type primitif 
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        this.test += ("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
             }
+            var l = db.clients.ToList();  // le type var permet n'importe quel type primitif 
         }
         // DEBUT GET
+        public String Get_Test()
+        {
+            return this.test;
+        }
+
         public String Get_IdAllClient()
         {
             //Selectionner toutes les catégories
@@ -31,7 +49,7 @@ namespace DevellopementCursor
             string result = "";
             foreach (var p in cli.ToList())
             {
-                result += p.NUM_CLIENT;
+                result += "," + p.NUM_CLIENT ;
             }
             return result;
         }
@@ -88,7 +106,10 @@ namespace DevellopementCursor
             var cli = from cat in db.clients
                       where cat.NUM_CLIENT == n
                       select cat;
-            return Convert.ToString(cli.ToList()[0].NAI_CLIENT).Substring(0, 10);
+            String naiclibox = Convert.ToString(cli.ToList()[0].NAI_CLIENT).Substring(0, 10);
+            //String convertdate = naiclibox.Substring(0, 2) + "-" + naiclibox.Substring(3, 2) + "-" + naiclibox.Substring(6, 4);
+
+            return naiclibox;
         }
 
         public string Get_TelClient(int n)
@@ -249,12 +270,13 @@ namespace DevellopementCursor
 
         public void Modify_Client(int n, String nom, String pnom, String adr, String cp, String v,String nai, String tel, String email, bool pa, String log, String mdp)
         {
-            // nai doit etre sous format YYYY-MM-DD
+            // nai doit etre sous format DD/MM/YYYY
             var modif_cli = from cat in db.clients
                             where cat.NUM_CLIENT == n
                             select cat;
+            nai = nai.Substring(6, 4) + "-" + nai.Substring(3, 2) + "-" + nai.Substring(0, 2);
             DateTime date = Convert.ToDateTime(nai);
-            //DateTime datenai = DateTime.Parse(naiclibox.Text);
+
             modif_cli.ToList().Last<Modele.clients>().NOM_CLIENT = nom;
             modif_cli.ToList().Last<Modele.clients>().PRE_CLIENT = pnom;
             modif_cli.ToList().Last<Modele.clients>().ADR_CLIENT = adr;

@@ -73,6 +73,12 @@
     <Compile Include="AddForms\AjoutProd.Designer.cs">
       <DependentUpon>AjoutProd.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddForms\AjoutCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AjoutCli.Designer.cs">
+      <DependentUpon>AjoutCli.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="VuesModeles\VueModeleClient.cs" />
     <EmbeddedResource Include="AddForms\AjoutCat.resx">
       <DependentUpon>AjoutCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AjoutCli.resx">
+      <DependentUpon>AjoutCli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AjoutProd.resx">
       <DependentUpon>AjoutProd.cs</DependentUpon>

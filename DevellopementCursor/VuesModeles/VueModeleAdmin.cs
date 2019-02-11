@@ -10,8 +10,6 @@ namespace DevellopementCursor
     class VueModeleAdmin
     {
         Modele.Donnees db = new Modele.Donnees();
-        private String login;
-        private String mdp;
 
         public String get_adminLogin(int n)
         {

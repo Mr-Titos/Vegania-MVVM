@@ -14,6 +14,8 @@ namespace DevellopementCursor
     public partial class Connexion : Form
     {
         private bool conx = false;
+        Maquette m = new Maquette();
+
 
         public Connexion()
         {
@@ -22,23 +24,23 @@ namespace DevellopementCursor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            valider();
+            Valider();
         }
 
         private void mdpbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                valider();
+                Valider();
         }
 
 
         private void loginbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                valider();
+                Valider();
         }
 
-        private void valider()
+        private void Valider()
         {
             VueModeleAdmin vma = new VueModeleAdmin();
             int ab = 0;
@@ -53,6 +55,7 @@ namespace DevellopementCursor
                         this.conx = true;
                         Visible = false;
                         i = 9999;
+                        Close();
                     }
                     else
                     {
@@ -68,22 +71,10 @@ namespace DevellopementCursor
             }
         }
 
-        private void Connexion_FormClosing(object sender, FormClosingEventArgs e)
-        {
-          /* if(conx == true)
-            {
-                Maquette m = new Maquette();
-                m.ShowDialog();
-            } */ 
-        }
         private void Connexion_VisibleChanged(object sender, EventArgs e)
         {
             if (conx == true)
-            {
-                Maquette m = new Maquette();
                 m.ShowDialog();
-                Close();
-            }
         }
     }
 }

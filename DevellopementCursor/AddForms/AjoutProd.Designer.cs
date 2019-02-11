@@ -161,6 +161,7 @@
             this.Controls.Add(this.ajoutbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AjoutProd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un produit";
             this.ResumeLayout(false);
             this.PerformLayout();

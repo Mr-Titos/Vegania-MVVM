@@ -17,7 +17,6 @@ namespace DevellopementCursor
         VueModeleCategorie vc = new VueModeleCategorie();
         VueModeleProduits vp = new VueModeleProduits();
         VueModeleClient vcl = new VueModeleClient();
-        Modele.Donnees db = new Modele.Donnees();
 
         public Maquette()
         {
@@ -47,41 +46,63 @@ namespace DevellopementCursor
                 if (panelCat.Visible == true)
                 {
                     String temp = listcat.SelectedItem.ToString();
-                    String temp2 = temp.Substring(0, 1);
-                    String temp3 = temp.Substring(0, 2);
-                    if (Convert.ToInt32(temp2) < 10)
+                    int temp2 = Convert.ToInt32(temp.Substring(0, 2));
+
+                    if (temp2 < 10)
                     {
-                        temp = temp.Substring(2);
-                        LibCatbox.Text = temp;
-                        NumCatBox.Text = temp2;
+                        NumCatBox.Text = Convert.ToString(temp2);
+                        LibCatbox.Text = vc.Get_LibCategorie(Convert.ToInt32(NumCatBox.Text));
                     }
-                    if (Convert.ToInt32(temp3) >= 10)
+                    if (temp2 >= 10 && temp2 < 100)
                     {
-                        LibCatbox.Text = temp.Substring(3);
-                        NumCatBox.Text = temp3;
+                        NumCatBox.Text = Convert.ToString(temp2);
+                        LibCatbox.Text = vc.Get_LibCategorie(Convert.ToInt32(NumCatBox.Text));
                     }
+
                 }
                 if(panelProd.Visible == true)
                 {
                     String temp = listcat.SelectedItem.ToString();
-                    String temp2 = temp.Substring(0, 1);
-                    String temp3 = temp.Substring(0, 2);
-                    if (Convert.ToInt32(temp2) < 10)
+                    int temp2 = Convert.ToInt32(temp.Substring(0, 3));
+                    catprodbox.Items.Clear();
+
+                    if (temp2 < 10)
                     {
                         temp = temp.Substring(2);
-                        libprod.Text = temp;
-                        idProdBox.Text = temp2;
-                        numcatboxprod.Text = Convert.ToString(vp.Get_NumCatProd(Convert.ToInt32(idProdBox.Text)));
+                        libprod.Text = temp.Substring(2);
+                        idProdBox.Text = Convert.ToString(temp2);
                         prixprod.Text = Convert.ToString(vp.Get_PrixProd(Convert.ToInt32(idProdBox.Text))) ;
                         descprod.Text = vp.Get_DescProd(Convert.ToInt32(idProdBox.Text));
+
+                        String allid = vc.Get_AllIdCategorie();
+                        String[] allidcat = allid.Split(',');
+
+                        foreach (string a in allidcat)
+                        {
+                            if (a.Length != 0)
+                                catprodbox.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)));
+                        }
+
+                        catprodbox.SelectedIndex = Convert.ToInt32(vp.Get_NumCatProd(temp2)) - 1;
+                        //vp.Get_NumCatProd(temp2) + " " + vc.Get_LibCategorie(temp2);
                     }
-                    if (Convert.ToInt32(temp3) >= 10)
+                    if (temp2 >= 10)
                     {
                         libprod.Text = temp.Substring(3);
-                        idProdBox.Text = temp3;
-                        numcatboxprod.Text = Convert.ToString(vp.Get_NumCatProd(Convert.ToInt32(idProdBox.Text)));
+                        idProdBox.Text = Convert.ToString(temp2);
                         prixprod.Text = Convert.ToString(vp.Get_PrixProd(Convert.ToInt32(idProdBox.Text)));
                         descprod.Text = vp.Get_DescProd(Convert.ToInt32(idProdBox.Text));
+
+                        String allid = vc.Get_AllIdCategorie();
+                        String[] allidcat = allid.Split(',');
+
+                        foreach (string a in allidcat)
+                        {
+                            if (a.Length != 0)
+                                catprodbox.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)));
+                        }
+                        //catprodbox.SelectedValue = Convert.ToString(temp2);
+
                     }
                 }
 
@@ -98,12 +119,20 @@ namespace DevellopementCursor
         private void Refreshcat()
         {
             listcat.Items.Clear();
-            var produits = from cat in db.categories
-                           select cat;
 
-            foreach (var p in produits.ToList())
-                listcat.Items.Add(p.NUM_CATEGORIE + " " + p.LIB_CATEGORIE);
+            String oui = vc.Get_AllIdCategorie();
+            string[] cha = oui.Split(',');
 
+            foreach (string a in cha)
+            {
+                if (a.Length != 0)
+                {
+                    if (Convert.ToInt32(a) < 10)
+                        listcat.Items.Add("0" + a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)) );
+                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100)
+                        listcat.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)) );
+                }
+            }
             panelCat.Visible = true;
             panelProd.Visible = false;
         }
@@ -111,6 +140,7 @@ namespace DevellopementCursor
         private void supcat_Click(object sender, EventArgs e)
         {
             vc.Remove_Categorie(Convert.ToInt32(NumCatBox.Text));
+            listcat.SelectedIndex--;
             Refreshcat();
         }
 
@@ -126,11 +156,22 @@ namespace DevellopementCursor
         private void Refreshprod()
         {
             listcat.Items.Clear();
-            var produits = from cat in db.produits
-                           select cat;
 
-            foreach (var p in produits.ToList())
-                listcat.Items.Add(p.IdProd + " " + p.LibProd);
+            String oui = vp.Get_AllIdProd();
+            string[] cha = oui.Split(',');
+
+            foreach (string a in cha)
+            {
+                if (a.Length != 0)
+                {
+                    if (Convert.ToInt32(a) < 10)
+                        listcat.Items.Add("00" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100)
+                        listcat.Items.Add("0" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000)
+                        listcat.Items.Add(a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                }
+            }
 
             panelCat.Visible = false;
             panelProd.Visible = true;
@@ -138,7 +179,17 @@ namespace DevellopementCursor
 
         private void modprod_Click(object sender, EventArgs e)
         {
-            vc.Modify_Categorie(Convert.ToInt32(NumCatBox.Text), LibCatbox.Text);
+            try
+            {
+                if (Convert.ToInt32(catprodbox.Text.Substring(0, 2)) < 10)
+                    vp.Modify_Prod(Convert.ToInt32(idProdBox.Text), Convert.ToInt32(catprodbox.Text.Substring(0, 1)), libprod.Text
+                    , Convert.ToSingle(prixprod.Text), descprod.Text);
+                else
+                    vp.Modify_Prod(Convert.ToInt32(idProdBox.Text), Convert.ToInt32(catprodbox.Text.Substring(0, 2)), libprod.Text
+                    , Convert.ToSingle(prixprod.Text), descprod.Text);
+            }
+            catch (FormatException) { laberrorprod.Visible = true; }
+
             Refreshprod();
         }
 
@@ -150,7 +201,7 @@ namespace DevellopementCursor
         private void supprod_Click(object sender, EventArgs e)
         {
             vp.Remove_Prod(Convert.ToInt32(idProdBox.Text));
-            Refreshcat();
+            Refreshprod();
         }
 
         private void ajprod_Click(object sender, EventArgs e)
@@ -174,26 +225,8 @@ namespace DevellopementCursor
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             String temp = listcli.SelectedItem.ToString();
-            int salt = 0;
-
-            if (Convert.ToInt32(temp.Substring(0, 1)) < 10 && salt == 0)
-            {
-                idclibox.Text = temp.Substring(0, 1);
-                salt = 1;
-            }
-            if (salt == 0)
-            {
-                if (Convert.ToInt32(temp.Substring(0, 2)) >= 10 && Convert.ToInt32(temp.Substring(0, 2)) < 100 && salt == 0)
-                    idclibox.Text = temp.Substring(0, 2);
-                salt = 10;
-            }
-
-            if (salt == 0)
-            {
-                if (Convert.ToInt32(temp.Substring(0, 3)) >= 100 && Convert.ToInt32(temp.Substring(0, 3)) < 1000)
-                    idclibox.Text = temp.Substring(0, 3);
-                salt = 100;
-            }
+            int temp2 = Convert.ToInt32(temp.Substring(0,3));
+            idclibox.Text = Convert.ToString(temp2);
 
             nomclibox.Text = vcl.Get_NomClient(Convert.ToInt32(idclibox.Text));
             preclibox.Text = vcl.Get_PrenomClient(Convert.ToInt32(idclibox.Text));
@@ -204,22 +237,32 @@ namespace DevellopementCursor
             telclibox.Text = tcli.Substring(0, 2) + " " + tcli.Substring(2, 2) + " " + tcli.Substring(4, 2) + " " + tcli.Substring(6, 2) + " " + tcli.Substring(8, 2);
             emailclibox.Text = vcl.Get_EmailClient(Convert.ToInt32(idclibox.Text));
             naiclibox.Text = vcl.Get_NaiClient(Convert.ToInt32(idclibox.Text));
-            partclibox.Text = Convert.ToString(vcl.Get_PartClient(Convert.ToInt32(idclibox.Text)));
             loginclibox.Text = vcl.Get_LogClient(Convert.ToInt32(idclibox.Text));
             mdpclibox.Text = vcl.Get_MdpClient(Convert.ToInt32(idclibox.Text));
-            salt = 0;
+            cmdpclibox.Text = mdpclibox.Text;
         }
 
         private void RefreshCli()
         {
             pancli.Visible = true;
-
             listcli.Items.Clear();
-            var cli = from cat in db.clients
-                           select cat;
 
-            foreach (var p in cli.ToList())
-                listcli.Items.Add(p.NUM_CLIENT + " " + p.PRE_CLIENT + " " + p.NOM_CLIENT);
+            String oui = vcl.Get_IdAllClient();
+            string[] cha = oui.Split(',');
+
+            foreach (string a in cha)
+            {
+                if(a.Length != 0)
+                {
+                    if (Convert.ToInt32(a) < 10)
+                        listcli.Items.Add("00" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)) );
+                    if(Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100)
+                        listcli.Items.Add("0" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    if(Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000)
+                        listcli.Items.Add(a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                }
+                    
+            } 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -246,8 +289,8 @@ namespace DevellopementCursor
                 {
                     String tcli = vcl.Get_TelClient(Convert.ToInt32(idclibox.Text));
                     vcl.Modify_Client(Convert.ToInt32(idclibox.Text), nomclibox.Text, preclibox.Text, adrclibox.Text, cpboxcli.Text, villeclibox.Text, naiclibox.Text
-                     , tcli.Substring(0, 2) + tcli.Substring(3, 2) + tcli.Substring(5, 2) + tcli.Substring(7, 2) + tcli.Substring(9, 2)
-                     , emailclibox.Text, Convert.ToBoolean(partcli), loginclibox.Text, mdpclibox.Text);
+                     , tcli.Substring(0, 2) + tcli.Substring(2, 2) + tcli.Substring(4, 2) + tcli.Substring(6, 2) + tcli.Substring(8, 2)
+                     , emailclibox.Text, false, loginclibox.Text, mdpclibox.Text);
                     laberrorcli.Visible = false;
                 }
             }
@@ -256,7 +299,15 @@ namespace DevellopementCursor
 
         private void addcli_Click(object sender, EventArgs e)
         {
+            AjoutCli ajcl = new AjoutCli();
+            ajcl.ShowDialog();
+            RefreshCli();
+        }
 
+        private void supcli_Click(object sender, EventArgs e)
+        {
+            vcl.Remove_Client(Convert.ToInt32(idclibox.Text));
+            RefreshCli();
         }
     }
 }
