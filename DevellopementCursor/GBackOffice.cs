@@ -17,6 +17,7 @@ namespace DevellopementCursor
         VueModeleCategorie vc = new VueModeleCategorie();
         VueModeleProduits vp = new VueModeleProduits();
         VueModeleClient vcl = new VueModeleClient();
+        VueModelePartenaire vpart = new VueModelePartenaire();
 
         public Maquette()
         {
@@ -135,6 +136,8 @@ namespace DevellopementCursor
             }
             panelCat.Visible = true;
             panelProd.Visible = false;
+            searchboxprod.Visible = false;
+            searchpicprod.Visible = false;
         }
 
         private void supcat_Click(object sender, EventArgs e)
@@ -175,6 +178,8 @@ namespace DevellopementCursor
 
             panelCat.Visible = false;
             panelProd.Visible = true;
+            searchboxprod.Visible = true;
+            searchpicprod.Visible = true;
         }
 
         private void modprod_Click(object sender, EventArgs e)
@@ -215,8 +220,8 @@ namespace DevellopementCursor
         {
             if(tabindex.SelectedIndex == 2)
                 Refreshprod();
-            /*if(tabindex.SelectedIndex == 1)
-            */
+            if (tabindex.SelectedIndex == 1)
+                RefreshPart();
             if (tabindex.SelectedIndex == 0)
                 RefreshCli();
                 
@@ -290,7 +295,7 @@ namespace DevellopementCursor
                     String tcli = vcl.Get_TelClient(Convert.ToInt32(idclibox.Text));
                     vcl.Modify_Client(Convert.ToInt32(idclibox.Text), nomclibox.Text, preclibox.Text, adrclibox.Text, cpboxcli.Text, villeclibox.Text, naiclibox.Text
                      , tcli.Substring(0, 2) + tcli.Substring(2, 2) + tcli.Substring(4, 2) + tcli.Substring(6, 2) + tcli.Substring(8, 2)
-                     , emailclibox.Text, false, loginclibox.Text, mdpclibox.Text);
+                     , emailclibox.Text,loginclibox.Text, mdpclibox.Text);
                     laberrorcli.Visible = false;
                 }
             }
@@ -308,6 +313,140 @@ namespace DevellopementCursor
         {
             vcl.Remove_Client(Convert.ToInt32(idclibox.Text));
             RefreshCli();
+        }
+
+        private void searchboxcli_TextChanged(object sender, EventArgs e)
+        {
+                listcli.Items.Clear();
+
+                String oui = vcl.Get_IdAllClient();
+                string[] cha = oui.Split(',');
+
+                foreach (string a in cha)
+                {
+                    if (a.Length != 0)
+                    {
+                        String non = vcl.Get_NomClient(Convert.ToInt32(a)).ToLower();
+                        String hey = vcl.Get_PrenomClient(Convert.ToInt32(a)).ToLower();
+
+                        if (Convert.ToInt32(a) < 10 && non.Contains(searchboxcli.Text.ToLower()) || Convert.ToInt32(a) < 10 && hey.Contains(searchboxcli.Text.ToLower()))
+                            listcli.Items.Add("00" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxcli.Text.ToLower()) || Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && hey.Contains(searchboxcli.Text.ToLower()))
+                            listcli.Items.Add("0" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxcli.Text.ToLower()) || Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && hey.Contains(searchboxcli.Text.ToLower()))
+                            listcli.Items.Add(a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    }
+
+                }
+            
+        }
+
+        private void searchboxprod_TextChanged(object sender, EventArgs e)
+        {
+            listcat.Items.Clear();
+
+            String oui = vp.Get_AllIdProd();
+            string[] cha = oui.Split(',');
+
+            foreach (string a in cha)
+            {
+                if (a.Length != 0)
+                {
+                    String non = vp.Get_LibProd(Convert.ToInt32(a)).ToLower();
+
+                    if (Convert.ToInt32(a) < 10 && non.Contains(searchboxprod.Text.ToLower()))
+                        listcat.Items.Add("00" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxprod.Text.ToLower()))
+                        listcat.Items.Add("0" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxprod.Text.ToLower()))
+                        listcat.Items.Add(a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                }
+
+            }
+        }
+
+        private void searchboxpart_TextChanged(object sender, EventArgs e)
+        {
+            listpart.Items.Clear();
+
+            String oui = vpart.Get_AllIdPart(); ;
+            string[] cha = oui.Split(',');
+
+            foreach (string a in cha)
+            {
+                if (a.Length != 0)
+                {
+                    String non = vcl.Get_NomClient(Convert.ToInt32(a)).ToLower();
+                    String hey = vcl.Get_PrenomClient(Convert.ToInt32(a)).ToLower();
+
+                    if (Convert.ToInt32(a) < 10 && non.Contains(searchboxpart.Text.ToLower()) || Convert.ToInt32(a) < 10 && hey.Contains(searchboxpart.Text.ToLower()))
+                        listpart.Items.Add("00" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxpart.Text.ToLower()) || Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && hey.Contains(searchboxpart.Text.ToLower()))
+                        listpart.Items.Add("0" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxpart.Text.ToLower()) || Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && hey.Contains(searchboxpart.Text.ToLower()))
+                        listpart.Items.Add(a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                }
+
+            }
+        }
+
+        private void RefreshPart()
+        {
+            listpart.Items.Clear();
+
+            String oui = vpart.Get_AllIdPart();
+            string[] cha = oui.Split(',');
+
+            foreach (string a in cha)
+            {
+                if (a.Length != 0)
+                {
+                    if (Convert.ToInt32(a) < 10)
+                        listpart.Items.Add("00" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100)
+                        listpart.Items.Add("0" + a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                    if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000)
+                        listpart.Items.Add(a + " " + vcl.Get_PrenomClient(Convert.ToInt32(a)) + " " + vcl.Get_NomClient(Convert.ToInt32(a)));
+                }
+            }
+        }
+
+        private void listpart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String temp = listpart.SelectedItem.ToString();
+            int temp2 = Convert.ToInt32(temp.Substring(0, 3));
+            boxidpart.Text = Convert.ToString(temp2);
+
+            boxnompart.Text = vcl.Get_NomClient(temp2);
+            boxprepart.Text = vcl.Get_PrenomClient(temp2);
+            boxniv.Text = vpart.Get_Niveau(temp2);
+            boxpourc.Text = Convert.ToString(vpart.Get_PourcReduc(temp2));
+
+        }
+
+        private void modpart_Click(object sender, EventArgs e)
+        {
+            vpart.Set_Niveau(Convert.ToInt32(boxidpart.Text), boxniv.Text);
+            vpart.Set_PourcReduc(Convert.ToInt32(boxidpart.Text), Convert.ToInt32(boxpourc.Text));
+            RefreshPart();
+        }
+
+        private void suppart_Click(object sender, EventArgs e)
+        {
+            vpart.Remove_Part(Convert.ToInt32(boxidpart.Text));
+            RefreshPart();
+        }
+
+        private void ajpart_Click(object sender, EventArgs e)
+        {
+            AjoutPart ajp = new AjoutPart();
+            ajp.ShowDialog();
+            RefreshPart();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RefreshPart();
         }
     }
 }

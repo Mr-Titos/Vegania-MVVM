@@ -44,7 +44,7 @@ namespace DevellopementCursor
             return result;
         }
 
-        public float Get_PrixProd(int n)
+        public double Get_PrixProd(int n)
         {
             var produit = from cat in db.produits
                           where cat.IdProd == n

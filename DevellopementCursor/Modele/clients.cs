@@ -19,12 +19,12 @@ namespace DevellopementCursor.Modele
         public int NUM_CLIENT { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string NOM_CLIENT { get; set; }
-
-        [Required]
         [StringLength(30)]
         public string PRE_CLIENT { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string NOM_CLIENT { get; set; }
 
         [Required]
         [StringLength(255)]
@@ -49,8 +49,6 @@ namespace DevellopementCursor.Modele
         [StringLength(100)]
         public string EMAIL_CLIENT { get; set; }
 
-        public bool? Partenaire { get; set; }
-
         [Required]
         [StringLength(100)]
         public string LOG_CLIENT { get; set; }
@@ -58,6 +56,8 @@ namespace DevellopementCursor.Modele
         [Required]
         [StringLength(100)]
         public string MDP_CLIENT { get; set; }
+
+        public virtual partenaire partenaire { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<commandes> commandes { get; set; }

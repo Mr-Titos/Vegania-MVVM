@@ -14,13 +14,13 @@ namespace DevellopementCursor
 
         private String test = "";
 
-        public void Add_Client(String pre, String nom, String adr, String cp, String v, String nai, String tel, String email, bool pa, String log, String mdp)
+        public void Add_Client(String pre, String nom, String adr, String cp, String v, String nai, String tel, String email, String log, String mdp)
         {
             // nai doit etre sous le format DD/MM/YYYY
             nai = nai.Substring(6) + "-" + nai.Substring(3, 2) + "-" + nai.Substring(0, 2);
 
             DateTime dnai = Convert.ToDateTime(nai);
-            db.clients.Add(new Modele.clients() { PRE_CLIENT = pre, NOM_CLIENT = nom, ADR_CLIENT = adr, CP_CLIENT = cp, VIL_CLIENT = v, NAI_CLIENT = dnai, TEL_CLIENT = tel, EMAIL_CLIENT = email, Partenaire = pa, LOG_CLIENT = log, MDP_CLIENT = mdp });
+            db.clients.Add(new Modele.clients() { PRE_CLIENT = pre, NOM_CLIENT = nom, ADR_CLIENT = adr, CP_CLIENT = cp, VIL_CLIENT = v, NAI_CLIENT = dnai, TEL_CLIENT = tel, EMAIL_CLIENT = email, LOG_CLIENT = log, MDP_CLIENT = mdp });
             try { db.SaveChanges(); }
 
             catch ( DbEntityValidationException ex)
@@ -128,15 +128,6 @@ namespace DevellopementCursor
             return cli.ToList()[0].EMAIL_CLIENT;
         }
 
-        public bool Get_PartClient(int n)
-        {
-            var cli = from cat in db.clients
-                      where cat.NUM_CLIENT == n
-                      select cat;
-             
-            return Convert.ToBoolean(cli.ToList()[0].Partenaire);
-        }
-
         public string Get_LogClient(int n)
         {
             var cli = from cat in db.clients
@@ -166,7 +157,7 @@ namespace DevellopementCursor
         }
         // FIN GET
 
-        // DEBUT MODIFIER
+        // DEBUT SET
         public void Modify_AdrClient(int n, String m)
         {
             var modif_cli = from cat in db.clients
@@ -258,17 +249,7 @@ namespace DevellopementCursor
             db.SaveChanges();
         }
 
-        public void Modify_PartClient(int n, bool m)
-        {
-            var modif_cli = from cat in db.clients
-                            where cat.NUM_CLIENT == n
-                            select cat;
-
-            modif_cli.ToList().Last<Modele.clients>().Partenaire = m;
-            db.SaveChanges();
-        }
-
-        public void Modify_Client(int n, String nom, String pnom, String adr, String cp, String v,String nai, String tel, String email, bool pa, String log, String mdp)
+        public void Modify_Client(int n, String nom, String pnom, String adr, String cp, String v,String nai, String tel, String email, String log, String mdp)
         {
             // nai doit etre sous format DD/MM/YYYY
             var modif_cli = from cat in db.clients
@@ -285,7 +266,6 @@ namespace DevellopementCursor
             modif_cli.ToList().Last<Modele.clients>().NAI_CLIENT = date;
             modif_cli.ToList().Last<Modele.clients>().TEL_CLIENT = tel;
             modif_cli.ToList().Last<Modele.clients>().EMAIL_CLIENT = email;
-            modif_cli.ToList().Last<Modele.clients>().Partenaire = pa;
             modif_cli.ToList().Last<Modele.clients>().LOG_CLIENT = log;
             modif_cli.ToList().Last<Modele.clients>().MDP_CLIENT = mdp;
             db.SaveChanges();

@@ -27,6 +27,8 @@ namespace DevellopementCursor
                 if (a.Length != 0)
                     comboBox1.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)));
             }
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

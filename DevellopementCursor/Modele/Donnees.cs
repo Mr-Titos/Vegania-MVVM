@@ -8,7 +8,7 @@ namespace DevellopementCursor.Modele
     public partial class Donnees : DbContext
     {
         public Donnees()
-            : base("name=Donnees1")
+            : base("name=Donnees2")
         {
         }
 
@@ -17,6 +17,7 @@ namespace DevellopementCursor.Modele
         public virtual DbSet<clients> clients { get; set; }
         public virtual DbSet<commandes> commandes { get; set; }
         public virtual DbSet<detailcommandes> detailcommandes { get; set; }
+        public virtual DbSet<partenaire> partenaire { get; set; }
         public virtual DbSet<produits> produits { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -38,6 +39,10 @@ namespace DevellopementCursor.Modele
                 .WithRequired(e => e.categories)
                 .HasForeignKey(e => e.NumCat)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<clients>()
+                .Property(e => e.PRE_CLIENT)
+                .IsUnicode(false);
 
             modelBuilder.Entity<clients>()
                 .Property(e => e.NOM_CLIENT)
@@ -72,6 +77,10 @@ namespace DevellopementCursor.Modele
                 .IsUnicode(false);
 
             modelBuilder.Entity<clients>()
+                .HasOptional(e => e.partenaire)
+                .WithRequired(e => e.clients);
+
+            modelBuilder.Entity<clients>()
                 .HasMany(e => e.commandes)
                 .WithRequired(e => e.clients)
                 .WillCascadeOnDelete(false);
@@ -89,6 +98,10 @@ namespace DevellopementCursor.Modele
                 .WithRequired(e => e.commandes)
                 .HasForeignKey(e => e.IdCommande)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<partenaire>()
+                .Property(e => e.NIVEAU)
+                .IsUnicode(false);
 
             modelBuilder.Entity<produits>()
                 .Property(e => e.LibProd)

@@ -24,7 +24,7 @@ namespace DevellopementCursor.Modele
         [StringLength(25)]
         public string LibProd { get; set; }
 
-        public float PrixProd { get; set; }
+        public double PrixProd { get; set; }
 
         [Required]
         [StringLength(150)]

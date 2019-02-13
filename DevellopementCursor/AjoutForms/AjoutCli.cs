@@ -33,7 +33,7 @@ namespace DevellopementCursor
 
                     vcl.Add_Client(preclibox.Text, nomclibox.Text, adrclibox.Text, cpboxcli.Text
                    , villeclibox.Text, naiclibox.Text, telclibox.Text, emailclibox.Text
-                   , false, loginclibox.Text, mdpclibox.Text);
+                   , loginclibox.Text, mdpclibox.Text);
                     laberrorcli.Visible = false;
                }
                 else

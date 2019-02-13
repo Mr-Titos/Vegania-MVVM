@@ -61,22 +61,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddForms\AjoutCat.cs">
+    <Compile Include="AjoutForms\AjoutPart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AjoutCat.Designer.cs">
+    <Compile Include="AjoutForms\AjoutPart.Designer.cs">
+      <DependentUpon>AjoutPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutForms\AjoutCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutForms\AjoutCat.Designer.cs">
       <DependentUpon>AjoutCat.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AjoutProd.cs">
+    <Compile Include="AjoutForms\AjoutProd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AjoutProd.Designer.cs">
+    <Compile Include="AjoutForms\AjoutProd.Designer.cs">
       <DependentUpon>AjoutProd.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AjoutCli.cs">
+    <Compile Include="AjoutForms\AjoutCli.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AjoutCli.Designer.cs">
+    <Compile Include="AjoutForms\AjoutCli.Designer.cs">
       <DependentUpon>AjoutCli.cs</DependentUpon>
     </Compile>
     <Compile Include="Connexion.cs">
@@ -97,20 +103,25 @@
     <Compile Include="Modele\commandes.cs" />
     <Compile Include="Modele\detailcommandes.cs" />
     <Compile Include="Modele\Donnees.cs" />
+    <Compile Include="Modele\partenaire.cs" />
     <Compile Include="Modele\produits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VuesModeles\VueModelePartenaire.cs" />
     <Compile Include="VuesModeles\VueModeleProduits.cs" />
     <Compile Include="VuesModeles\VueModeleAdmin.cs" />
     <Compile Include="VuesModeles\VueModeleCategorie.cs" />
     <Compile Include="VuesModeles\VueModeleClient.cs" />
-    <EmbeddedResource Include="AddForms\AjoutCat.resx">
+    <EmbeddedResource Include="AjoutForms\AjoutPart.resx">
+      <DependentUpon>AjoutPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutForms\AjoutCat.resx">
       <DependentUpon>AjoutCat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AjoutCli.resx">
+    <EmbeddedResource Include="AjoutForms\AjoutCli.resx">
       <DependentUpon>AjoutCli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AjoutProd.resx">
+    <EmbeddedResource Include="AjoutForms\AjoutProd.resx">
       <DependentUpon>AjoutProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">

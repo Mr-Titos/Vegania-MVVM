@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maquette));
             this.Gprod = new System.Windows.Forms.TabPage();
+            this.searchpicprod = new System.Windows.Forms.PictureBox();
+            this.searchboxprod = new System.Windows.Forms.TextBox();
+            this.laberrorprod = new System.Windows.Forms.Label();
             this.panelCat = new System.Windows.Forms.Panel();
             this.ajcat = new System.Windows.Forms.Button();
             this.supcat = new System.Windows.Forms.Button();
@@ -58,8 +61,28 @@
             this.actucat = new System.Windows.Forms.Button();
             this.listcat = new System.Windows.Forms.ListBox();
             this.Gpart = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labpourcdeco = new System.Windows.Forms.Label();
+            this.labprepart = new System.Windows.Forms.Label();
+            this.boxprepart = new System.Windows.Forms.TextBox();
+            this.labpourc = new System.Windows.Forms.Label();
+            this.boxpourc = new System.Windows.Forms.TextBox();
+            this.ajpart = new System.Windows.Forms.Button();
+            this.suppart = new System.Windows.Forms.Button();
+            this.modpart = new System.Windows.Forms.Button();
+            this.boxniv = new System.Windows.Forms.TextBox();
+            this.boxidpart = new System.Windows.Forms.TextBox();
+            this.labnompart = new System.Windows.Forms.Label();
+            this.labidpart = new System.Windows.Forms.Label();
+            this.boxnompart = new System.Windows.Forms.TextBox();
+            this.labniv = new System.Windows.Forms.Label();
+            this.listpart = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.searchpart = new System.Windows.Forms.PictureBox();
+            this.searchboxpart = new System.Windows.Forms.TextBox();
             this.Gclient = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.searchboxcli = new System.Windows.Forms.TextBox();
             this.laberrorcli = new System.Windows.Forms.Label();
             this.pancli = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -95,11 +118,15 @@
             this.listcli = new System.Windows.Forms.ListBox();
             this.actucli = new System.Windows.Forms.Button();
             this.tabindex = new System.Windows.Forms.TabControl();
-            this.laberrorprod = new System.Windows.Forms.Label();
             this.Gprod.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicprod)).BeginInit();
             this.panelCat.SuspendLayout();
             this.panelProd.SuspendLayout();
+            this.Gpart.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpart)).BeginInit();
             this.Gclient.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pancli.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,6 +135,8 @@
             // 
             // Gprod
             // 
+            this.Gprod.Controls.Add(this.searchpicprod);
+            this.Gprod.Controls.Add(this.searchboxprod);
             this.Gprod.Controls.Add(this.laberrorprod);
             this.Gprod.Controls.Add(this.panelCat);
             this.Gprod.Controls.Add(this.panelProd);
@@ -120,6 +149,36 @@
             this.Gprod.TabIndex = 3;
             this.Gprod.Text = "Gerer Produits";
             this.Gprod.UseVisualStyleBackColor = true;
+            // 
+            // searchpicprod
+            // 
+            this.searchpicprod.Image = ((System.Drawing.Image)(resources.GetObject("searchpicprod.Image")));
+            this.searchpicprod.Location = new System.Drawing.Point(177, 8);
+            this.searchpicprod.Name = "searchpicprod";
+            this.searchpicprod.Size = new System.Drawing.Size(25, 24);
+            this.searchpicprod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchpicprod.TabIndex = 39;
+            this.searchpicprod.TabStop = false;
+            // 
+            // searchboxprod
+            // 
+            this.searchboxprod.Location = new System.Drawing.Point(60, 8);
+            this.searchboxprod.Name = "searchboxprod";
+            this.searchboxprod.Size = new System.Drawing.Size(111, 22);
+            this.searchboxprod.TabIndex = 38;
+            this.searchboxprod.TextChanged += new System.EventHandler(this.searchboxprod_TextChanged);
+            // 
+            // laberrorprod
+            // 
+            this.laberrorprod.AutoSize = true;
+            this.laberrorprod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laberrorprod.ForeColor = System.Drawing.Color.Red;
+            this.laberrorprod.Location = new System.Drawing.Point(456, 459);
+            this.laberrorprod.Name = "laberrorprod";
+            this.laberrorprod.Size = new System.Drawing.Size(285, 18);
+            this.laberrorprod.TabIndex = 20;
+            this.laberrorprod.Text = "Certains champs ne sont pas valide !";
+            this.laberrorprod.Visible = false;
             // 
             // panelCat
             // 
@@ -390,6 +449,11 @@
             // 
             // Gpart
             // 
+            this.Gpart.Controls.Add(this.panel1);
+            this.Gpart.Controls.Add(this.listpart);
+            this.Gpart.Controls.Add(this.button1);
+            this.Gpart.Controls.Add(this.searchpart);
+            this.Gpart.Controls.Add(this.searchboxpart);
             this.Gpart.Location = new System.Drawing.Point(4, 25);
             this.Gpart.Name = "Gpart";
             this.Gpart.Padding = new System.Windows.Forms.Padding(3);
@@ -398,10 +462,200 @@
             this.Gpart.Text = "Gerer Partenaire";
             this.Gpart.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.labpourcdeco);
+            this.panel1.Controls.Add(this.labprepart);
+            this.panel1.Controls.Add(this.boxprepart);
+            this.panel1.Controls.Add(this.labpourc);
+            this.panel1.Controls.Add(this.boxpourc);
+            this.panel1.Controls.Add(this.ajpart);
+            this.panel1.Controls.Add(this.suppart);
+            this.panel1.Controls.Add(this.modpart);
+            this.panel1.Controls.Add(this.boxniv);
+            this.panel1.Controls.Add(this.boxidpart);
+            this.panel1.Controls.Add(this.labnompart);
+            this.panel1.Controls.Add(this.labidpart);
+            this.panel1.Controls.Add(this.boxnompart);
+            this.panel1.Controls.Add(this.labniv);
+            this.panel1.Location = new System.Drawing.Point(223, 46);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(735, 384);
+            this.panel1.TabIndex = 44;
+            // 
+            // labpourcdeco
+            // 
+            this.labpourcdeco.AutoSize = true;
+            this.labpourcdeco.Location = new System.Drawing.Point(628, 170);
+            this.labpourcdeco.Name = "labpourcdeco";
+            this.labpourcdeco.Size = new System.Drawing.Size(20, 17);
+            this.labpourcdeco.TabIndex = 33;
+            this.labpourcdeco.Text = "%";
+            // 
+            // labprepart
+            // 
+            this.labprepart.AutoSize = true;
+            this.labprepart.Location = new System.Drawing.Point(254, 136);
+            this.labprepart.Name = "labprepart";
+            this.labprepart.Size = new System.Drawing.Size(57, 17);
+            this.labprepart.TabIndex = 32;
+            this.labprepart.Text = "Prénom";
+            // 
+            // boxprepart
+            // 
+            this.boxprepart.Location = new System.Drawing.Point(254, 167);
+            this.boxprepart.Name = "boxprepart";
+            this.boxprepart.ReadOnly = true;
+            this.boxprepart.Size = new System.Drawing.Size(75, 22);
+            this.boxprepart.TabIndex = 2;
+            // 
+            // labpourc
+            // 
+            this.labpourc.AutoSize = true;
+            this.labpourc.Location = new System.Drawing.Point(562, 136);
+            this.labpourc.Name = "labpourc";
+            this.labpourc.Size = new System.Drawing.Size(72, 17);
+            this.labpourc.TabIndex = 18;
+            this.labpourc.Text = "Réduction";
+            // 
+            // boxpourc
+            // 
+            this.boxpourc.Location = new System.Drawing.Point(565, 167);
+            this.boxpourc.Name = "boxpourc";
+            this.boxpourc.Size = new System.Drawing.Size(57, 22);
+            this.boxpourc.TabIndex = 4;
+            // 
+            // ajpart
+            // 
+            this.ajpart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.ajpart.Location = new System.Drawing.Point(200, 340);
+            this.ajpart.Name = "ajpart";
+            this.ajpart.Size = new System.Drawing.Size(87, 33);
+            this.ajpart.TabIndex = 14;
+            this.ajpart.Text = "Ajouter";
+            this.ajpart.UseVisualStyleBackColor = true;
+            this.ajpart.Click += new System.EventHandler(this.ajpart_Click);
+            // 
+            // suppart
+            // 
+            this.suppart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.suppart.Location = new System.Drawing.Point(107, 340);
+            this.suppart.Name = "suppart";
+            this.suppart.Size = new System.Drawing.Size(87, 33);
+            this.suppart.TabIndex = 13;
+            this.suppart.Text = "Supprimer";
+            this.suppart.UseVisualStyleBackColor = true;
+            this.suppart.Click += new System.EventHandler(this.suppart_Click);
+            // 
+            // modpart
+            // 
+            this.modpart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.modpart.Location = new System.Drawing.Point(11, 340);
+            this.modpart.Name = "modpart";
+            this.modpart.Size = new System.Drawing.Size(90, 33);
+            this.modpart.TabIndex = 12;
+            this.modpart.Text = "Modifier";
+            this.modpart.UseVisualStyleBackColor = true;
+            this.modpart.Click += new System.EventHandler(this.modpart_Click);
+            // 
+            // boxniv
+            // 
+            this.boxniv.Location = new System.Drawing.Point(353, 167);
+            this.boxniv.Name = "boxniv";
+            this.boxniv.Size = new System.Drawing.Size(184, 22);
+            this.boxniv.TabIndex = 3;
+            // 
+            // boxidpart
+            // 
+            this.boxidpart.Location = new System.Drawing.Point(69, 167);
+            this.boxidpart.Name = "boxidpart";
+            this.boxidpart.ReadOnly = true;
+            this.boxidpart.Size = new System.Drawing.Size(55, 22);
+            this.boxidpart.TabIndex = 10;
+            this.boxidpart.TabStop = false;
+            // 
+            // labnompart
+            // 
+            this.labnompart.AutoSize = true;
+            this.labnompart.Location = new System.Drawing.Point(154, 136);
+            this.labnompart.Name = "labnompart";
+            this.labnompart.Size = new System.Drawing.Size(37, 17);
+            this.labnompart.TabIndex = 14;
+            this.labnompart.Text = "Nom";
+            // 
+            // labidpart
+            // 
+            this.labidpart.AutoSize = true;
+            this.labidpart.Location = new System.Drawing.Point(70, 136);
+            this.labidpart.Name = "labidpart";
+            this.labidpart.Size = new System.Drawing.Size(21, 17);
+            this.labidpart.TabIndex = 11;
+            this.labidpart.Text = "ID";
+            // 
+            // boxnompart
+            // 
+            this.boxnompart.Location = new System.Drawing.Point(154, 167);
+            this.boxnompart.Name = "boxnompart";
+            this.boxnompart.ReadOnly = true;
+            this.boxnompart.Size = new System.Drawing.Size(75, 22);
+            this.boxnompart.TabIndex = 1;
+            // 
+            // labniv
+            // 
+            this.labniv.AutoSize = true;
+            this.labniv.Location = new System.Drawing.Point(353, 136);
+            this.labniv.Name = "labniv";
+            this.labniv.Size = new System.Drawing.Size(104, 17);
+            this.labniv.TabIndex = 12;
+            this.labniv.Text = "Niveau d\'accès";
+            // 
+            // listpart
+            // 
+            this.listpart.BackColor = System.Drawing.Color.LightGray;
+            this.listpart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listpart.FormattingEnabled = true;
+            this.listpart.HorizontalScrollbar = true;
+            this.listpart.ItemHeight = 20;
+            this.listpart.Location = new System.Drawing.Point(33, 46);
+            this.listpart.Name = "listpart";
+            this.listpart.Size = new System.Drawing.Size(184, 384);
+            this.listpart.TabIndex = 42;
+            this.listpart.SelectedIndexChanged += new System.EventHandler(this.listpart_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button1.Location = new System.Drawing.Point(33, 461);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 28);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "ACTUALISER";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // searchpart
+            // 
+            this.searchpart.Image = ((System.Drawing.Image)(resources.GetObject("searchpart.Image")));
+            this.searchpart.Location = new System.Drawing.Point(172, 16);
+            this.searchpart.Name = "searchpart";
+            this.searchpart.Size = new System.Drawing.Size(25, 24);
+            this.searchpart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchpart.TabIndex = 41;
+            this.searchpart.TabStop = false;
+            // 
+            // searchboxpart
+            // 
+            this.searchboxpart.Location = new System.Drawing.Point(55, 16);
+            this.searchboxpart.Name = "searchboxpart";
+            this.searchboxpart.Size = new System.Drawing.Size(111, 22);
+            this.searchboxpart.TabIndex = 40;
+            this.searchboxpart.TextChanged += new System.EventHandler(this.searchboxpart_TextChanged);
+            // 
             // Gclient
             // 
             this.Gclient.BackColor = System.Drawing.SystemColors.Window;
-            this.Gclient.Controls.Add(this.textBox1);
+            this.Gclient.Controls.Add(this.pictureBox3);
+            this.Gclient.Controls.Add(this.searchboxcli);
             this.Gclient.Controls.Add(this.laberrorcli);
             this.Gclient.Controls.Add(this.pancli);
             this.Gclient.Controls.Add(this.listcli);
@@ -414,12 +668,23 @@
             this.Gclient.TabIndex = 0;
             this.Gclient.Text = "Gerer Client";
             // 
-            // textBox1
+            // pictureBox3
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 24);
-            this.textBox1.TabIndex = 20;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(174, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 37;
+            this.pictureBox3.TabStop = false;
+            // 
+            // searchboxcli
+            // 
+            this.searchboxcli.Location = new System.Drawing.Point(57, 22);
+            this.searchboxcli.Name = "searchboxcli";
+            this.searchboxcli.Size = new System.Drawing.Size(111, 24);
+            this.searchboxcli.TabIndex = 20;
+            this.searchboxcli.TextChanged += new System.EventHandler(this.searchboxcli_TextChanged);
             // 
             // laberrorcli
             // 
@@ -465,7 +730,7 @@
             this.pancli.Controls.Add(this.label7);
             this.pancli.Controls.Add(this.nomclibox);
             this.pancli.Controls.Add(this.adrcli);
-            this.pancli.Location = new System.Drawing.Point(227, 42);
+            this.pancli.Location = new System.Drawing.Point(227, 52);
             this.pancli.Name = "pancli";
             this.pancli.Size = new System.Drawing.Size(735, 384);
             this.pancli.TabIndex = 18;
@@ -767,18 +1032,6 @@
             this.tabindex.TabIndex = 0;
             this.tabindex.SelectedIndexChanged += new System.EventHandler(this.tabindex_SelectedIndexChanged);
             // 
-            // laberrorprod
-            // 
-            this.laberrorprod.AutoSize = true;
-            this.laberrorprod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laberrorprod.ForeColor = System.Drawing.Color.Red;
-            this.laberrorprod.Location = new System.Drawing.Point(456, 459);
-            this.laberrorprod.Name = "laberrorprod";
-            this.laberrorprod.Size = new System.Drawing.Size(285, 18);
-            this.laberrorprod.TabIndex = 20;
-            this.laberrorprod.Text = "Certains champs ne sont pas valide !";
-            this.laberrorprod.Visible = false;
-            // 
             // Maquette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -793,12 +1046,19 @@
             this.Load += new System.EventHandler(this.Maquette_Load);
             this.Gprod.ResumeLayout(false);
             this.Gprod.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicprod)).EndInit();
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
             this.panelProd.ResumeLayout(false);
             this.panelProd.PerformLayout();
+            this.Gpart.ResumeLayout(false);
+            this.Gpart.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpart)).EndInit();
             this.Gclient.ResumeLayout(false);
             this.Gclient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pancli.ResumeLayout(false);
             this.pancli.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -873,10 +1133,32 @@
         private System.Windows.Forms.Label naicli;
         private System.Windows.Forms.TextBox naiclibox;
         private System.Windows.Forms.Label laberrorcli;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchboxcli;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox catprodbox;
         private System.Windows.Forms.Label laberrorprod;
+        private System.Windows.Forms.PictureBox searchpicprod;
+        private System.Windows.Forms.TextBox searchboxprod;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ListBox listpart;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox searchpart;
+        private System.Windows.Forms.TextBox searchboxpart;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labpourcdeco;
+        private System.Windows.Forms.Label labprepart;
+        private System.Windows.Forms.TextBox boxprepart;
+        private System.Windows.Forms.Label labpourc;
+        private System.Windows.Forms.TextBox boxpourc;
+        private System.Windows.Forms.Button ajpart;
+        private System.Windows.Forms.Button suppart;
+        private System.Windows.Forms.Button modpart;
+        private System.Windows.Forms.TextBox boxniv;
+        private System.Windows.Forms.TextBox boxidpart;
+        private System.Windows.Forms.Label labnompart;
+        private System.Windows.Forms.Label labidpart;
+        private System.Windows.Forms.TextBox boxnompart;
+        private System.Windows.Forms.Label labniv;
     }
 }
 

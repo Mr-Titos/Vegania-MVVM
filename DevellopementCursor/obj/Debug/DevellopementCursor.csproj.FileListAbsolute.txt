@@ -19,3 +19,4 @@ C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\De
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.AjoutProd.resources
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.csprojAssemblyReference.cache
 C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.AjoutCli.resources
+C:\Users\tutur\source\repos\DevellopementCursor\DevellopementCursor\obj\Debug\DevellopementCursor.AjoutPart.resources
