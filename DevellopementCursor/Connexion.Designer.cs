@@ -111,6 +111,7 @@
             this.Name = "Connexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connexion";
+            this.Deactivate += new System.EventHandler(this.Connexion_Deactivate);
             this.VisibleChanged += new System.EventHandler(this.Connexion_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

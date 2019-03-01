@@ -300,6 +300,7 @@ namespace DevellopementCursor
                 }
             }
             catch (FormatException) { laberrorcli.Visible = true; }
+            RefreshCli();
         }
 
         private void addcli_Click(object sender, EventArgs e)

@@ -59,7 +59,7 @@ namespace DevellopementCursor
                     }
                     else
                     {
-                        if (ab != 0)
+                        if (i == 2)
                         {
                             errorlabel.Visible = true;
                             loginbox.Clear();
@@ -76,5 +76,11 @@ namespace DevellopementCursor
             if (conx == true)
                 m.ShowDialog();
         }
+
+        private void Connexion_Deactivate(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
     }
 }
