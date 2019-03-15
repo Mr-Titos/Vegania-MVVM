@@ -72,7 +72,8 @@ namespace DevellopementCursor
                         temp = temp.Substring(2);
                         libprod.Text = temp.Substring(2);
                         idProdBox.Text = Convert.ToString(temp2);
-                        prixprod.Text = Convert.ToString(vp.Get_PrixProd(Convert.ToInt32(idProdBox.Text))) ;
+                        prixprod.Text = Convert.ToString(vp.Get_PrixProd(Convert.ToInt32(idProdBox.Text)));
+                        qteprod.Text = Convert.ToString(vp.Get_QteProd(Convert.ToInt32(idProdBox.Text)));
                         descprod.Text = vp.Get_DescProd(Convert.ToInt32(idProdBox.Text));
 
                         String allid = vc.Get_AllIdCategorie();
@@ -85,13 +86,13 @@ namespace DevellopementCursor
                         }
 
                         catprodbox.SelectedIndex = Convert.ToInt32(vp.Get_NumCatProd(temp2)) - 1;
-                        //vp.Get_NumCatProd(temp2) + " " + vc.Get_LibCategorie(temp2);
                     }
                     if (temp2 >= 10)
                     {
                         libprod.Text = temp.Substring(3);
                         idProdBox.Text = Convert.ToString(temp2);
                         prixprod.Text = Convert.ToString(vp.Get_PrixProd(Convert.ToInt32(idProdBox.Text)));
+                        qteprod.Text = Convert.ToString(vp.Get_QteProd(Convert.ToInt32(idProdBox.Text)));
                         descprod.Text = vp.Get_DescProd(Convert.ToInt32(idProdBox.Text));
 
                         String allid = vc.Get_AllIdCategorie();
@@ -102,8 +103,6 @@ namespace DevellopementCursor
                             if (a.Length != 0)
                                 catprodbox.Items.Add(a + " " + vc.Get_LibCategorie(Convert.ToInt32(a)));
                         }
-                        //catprodbox.SelectedValue = Convert.ToString(temp2);
-
                     }
                 }
 
@@ -188,10 +187,10 @@ namespace DevellopementCursor
             {
                 if (Convert.ToInt32(catprodbox.Text.Substring(0, 2)) < 10)
                     vp.Modify_Prod(Convert.ToInt32(idProdBox.Text), Convert.ToInt32(catprodbox.Text.Substring(0, 1)), libprod.Text
-                    , Convert.ToSingle(prixprod.Text), descprod.Text);
+                    ,Convert.ToSingle(prixprod.Text), Convert.ToInt32(qteprod.Text), descprod.Text);
                 else
                     vp.Modify_Prod(Convert.ToInt32(idProdBox.Text), Convert.ToInt32(catprodbox.Text.Substring(0, 2)), libprod.Text
-                    , Convert.ToSingle(prixprod.Text), descprod.Text);
+                    , Convert.ToSingle(prixprod.Text), Convert.ToInt32(qteprod.Text), descprod.Text);
             }
             catch (FormatException) { laberrorprod.Visible = true; }
 

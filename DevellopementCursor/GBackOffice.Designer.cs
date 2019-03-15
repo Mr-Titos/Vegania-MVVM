@@ -118,6 +118,8 @@
             this.listcli = new System.Windows.Forms.ListBox();
             this.actucli = new System.Windows.Forms.Button();
             this.tabindex = new System.Windows.Forms.TabControl();
+            this.labqteprod = new System.Windows.Forms.Label();
+            this.qteprod = new System.Windows.Forms.TextBox();
             this.Gprod.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchpicprod)).BeginInit();
             this.panelCat.SuspendLayout();
@@ -271,6 +273,8 @@
             // 
             // panelProd
             // 
+            this.panelProd.Controls.Add(this.labqteprod);
+            this.panelProd.Controls.Add(this.qteprod);
             this.panelProd.Controls.Add(this.catprodbox);
             this.panelProd.Controls.Add(this.labprixprod);
             this.panelProd.Controls.Add(this.prixprod);
@@ -287,7 +291,7 @@
             this.panelProd.Controls.Add(this.label1);
             this.panelProd.Location = new System.Drawing.Point(227, 234);
             this.panelProd.Name = "panelProd";
-            this.panelProd.Size = new System.Drawing.Size(735, 169);
+            this.panelProd.Size = new System.Drawing.Size(735, 186);
             this.panelProd.TabIndex = 17;
             this.panelProd.Visible = false;
             // 
@@ -302,7 +306,7 @@
             // labprixprod
             // 
             this.labprixprod.AutoSize = true;
-            this.labprixprod.Location = new System.Drawing.Point(393, 34);
+            this.labprixprod.Location = new System.Drawing.Point(393, 11);
             this.labprixprod.Name = "labprixprod";
             this.labprixprod.Size = new System.Drawing.Size(62, 17);
             this.labprixprod.TabIndex = 18;
@@ -310,14 +314,14 @@
             // 
             // prixprod
             // 
-            this.prixprod.Location = new System.Drawing.Point(396, 65);
+            this.prixprod.Location = new System.Drawing.Point(396, 42);
             this.prixprod.Name = "prixprod";
             this.prixprod.Size = new System.Drawing.Size(55, 22);
             this.prixprod.TabIndex = 17;
             // 
             // ajprod
             // 
-            this.ajprod.Location = new System.Drawing.Point(201, 133);
+            this.ajprod.Location = new System.Drawing.Point(201, 145);
             this.ajprod.Name = "ajprod";
             this.ajprod.Size = new System.Drawing.Size(87, 33);
             this.ajprod.TabIndex = 12;
@@ -327,7 +331,7 @@
             // 
             // supprod
             // 
-            this.supprod.Location = new System.Drawing.Point(108, 133);
+            this.supprod.Location = new System.Drawing.Point(108, 145);
             this.supprod.Name = "supprod";
             this.supprod.Size = new System.Drawing.Size(87, 33);
             this.supprod.TabIndex = 12;
@@ -347,7 +351,7 @@
             // 
             // modprod
             // 
-            this.modprod.Location = new System.Drawing.Point(12, 133);
+            this.modprod.Location = new System.Drawing.Point(12, 145);
             this.modprod.Name = "modprod";
             this.modprod.Size = new System.Drawing.Size(90, 33);
             this.modprod.TabIndex = 11;
@@ -1032,6 +1036,22 @@
             this.tabindex.TabIndex = 0;
             this.tabindex.SelectedIndexChanged += new System.EventHandler(this.tabindex_SelectedIndexChanged);
             // 
+            // labqteprod
+            // 
+            this.labqteprod.AutoSize = true;
+            this.labqteprod.Location = new System.Drawing.Point(393, 89);
+            this.labqteprod.Name = "labqteprod";
+            this.labqteprod.Size = new System.Drawing.Size(62, 17);
+            this.labqteprod.TabIndex = 21;
+            this.labqteprod.Text = "Quantité";
+            // 
+            // qteprod
+            // 
+            this.qteprod.Location = new System.Drawing.Point(396, 120);
+            this.qteprod.Name = "qteprod";
+            this.qteprod.Size = new System.Drawing.Size(55, 22);
+            this.qteprod.TabIndex = 20;
+            // 
             // Maquette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1159,6 +1179,8 @@
         private System.Windows.Forms.Label labidpart;
         private System.Windows.Forms.TextBox boxnompart;
         private System.Windows.Forms.Label labniv;
+        private System.Windows.Forms.Label labqteprod;
+        private System.Windows.Forms.TextBox qteprod;
     }
 }
 

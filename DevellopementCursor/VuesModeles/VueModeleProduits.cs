@@ -60,6 +60,14 @@ namespace DevellopementCursor
             return produit.ToList()[0].LibProd;
         }
 
+        public int Get_QteProd(int n)
+        {
+            var produit = from cat in db.produits
+                          where cat.IdProd == n
+                          select cat;
+            return produit.ToList()[0].QteProd;
+        }
+
         public String Get_DescProd(int n)
         {
             var produit = from cat in db.produits
@@ -74,14 +82,14 @@ namespace DevellopementCursor
                           where cat.IdProd == n
                           select cat;
             return  Convert.ToString(produit.ToList()[0].NumCat);
-        }        public String Get_Prod(int n)
+        }        /*public String Get_Prod(int n)
         {
             String r = "";
             var produit = from cat in db.produits
                           where cat.IdProd == n
                           select cat;
             return r = produit.ToList()[0].LibProd + "," + produit.ToList()[0].NumCat + "," + produit.ToList()[0].PrixProd + "," + produit.ToList()[0].DescProd;
-        }        public void Modify_Prod(int n, int nuc, string lib, float p, string desc)
+        }*/        public void Modify_Prod(int n, int nuc, string lib, float p, int qte, string desc)
         {
             var modif_cat = from cat in db.produits
                             where cat.IdProd == n
@@ -90,6 +98,7 @@ namespace DevellopementCursor
             modif_cat.ToList().Last<Modele.produits>().NumCat = nuc;
             modif_cat.ToList().Last<Modele.produits>().LibProd = lib;
             modif_cat.ToList().Last<Modele.produits>().PrixProd = p;
+            modif_cat.ToList().Last<Modele.produits>().QteProd = qte;
             modif_cat.ToList().Last<Modele.produits>().DescProd = desc;
             db.SaveChanges();
         }

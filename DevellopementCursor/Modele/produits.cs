@@ -26,6 +26,8 @@ namespace DevellopementCursor.Modele
 
         public double PrixProd { get; set; }
 
+        public int QteProd { get; set; }
+
         [Required]
         [StringLength(150)]
         public string DescProd { get; set; }
