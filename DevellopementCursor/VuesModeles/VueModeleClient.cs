@@ -33,7 +33,6 @@ namespace DevellopementCursor
                     }
                 }
             }
-            var l = db.clients.ToList();  // le type var permet n'importe quel type primitif 
         }
         // DEBUT GET
         public String Get_Test()

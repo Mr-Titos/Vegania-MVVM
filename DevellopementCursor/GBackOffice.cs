@@ -353,15 +353,28 @@ namespace DevellopementCursor
                 if (a.Length != 0)
                 {
                     String non = vp.Get_LibProd(Convert.ToInt32(a)).ToLower();
+                    if (non.Contains(searchboxprod.Text.ToLower()) == true)
+                    {
+                        if (Convert.ToInt32(a) < 10 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add("00" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add("0" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add(a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    }
 
-                    if (Convert.ToInt32(a) < 10 && non.Contains(searchboxprod.Text.ToLower()))
-                        listcat.Items.Add("00" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
-                    if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxprod.Text.ToLower()))
-                        listcat.Items.Add("0" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
-                    if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxprod.Text.ToLower()))
-                        listcat.Items.Add(a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                   else
+                    {
+                        non = vp.Get_DescProd(Convert.ToInt32(a)).ToLower();
+
+                        if (Convert.ToInt32(a) < 10 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add("00" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 10 && Convert.ToInt32(a) < 100 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add("0" + a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                        if (Convert.ToInt32(a) >= 100 && Convert.ToInt32(a) < 1000 && non.Contains(searchboxprod.Text.ToLower()))
+                            listcat.Items.Add(a + " " + vp.Get_LibProd(Convert.ToInt32(a)));
+                    }
                 }
-
             }
         }
 
